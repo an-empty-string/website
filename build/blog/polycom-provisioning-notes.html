@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Polycom provisioning notes (tris.fyi)</title>
+        <link rel="stylesheet" href="/static/index2.css">
+        
+<link rel="stylesheet" href="/static/pygments.css">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+    </head>
+    <body>
+        <header>
+            
+<span><a href="/">tris.fyi</a> &gt; <a href="/blog/">blog</a> &gt;</span>
+<h1>Polycom provisioning notes</h1>
+<div>
+    
+    <em>
+        
+        posted 2021-06-21
+        
+    </em>
+</div>
+<hr />
+
+
+        </header>
+        <main>
+            
+<p>Phones look at all attributes on any XML element in the provisioning file and collect them together to build their configuration. So these are equivalent:</p>
+<ul>
+<li><code>&lt;set foo="bar" foo.baz="quux" /&gt;</code></li>
+<li><code>&lt;foo foo="bar"&gt;&lt;baz foo.baz="quux" /&gt;&lt;xyzzy /&gt;&lt;/foo&gt;</code></li>
+</ul>
+<p>Anything in the <code>device</code> namespace will not be applied unless you have a <code>device.set="1"</code> and a <code>device.some.attr.set="1"</code> for each <code>device.some.attr</code> you want to set. Setting many device attributes (especially those related to provisioning) may cause the phone to reprovision. This is probably what you want.</p>
+<p>When running HTTP provisioning, phones may <code>PUT</code> files to you. Usually, these files are prefixed with <code>/phonemac-</code>. If you can authenticate phones, you can thus authenticate file uploads pretty easily.</p>
+<p>Note that phone passwords must not be longer than 32 characters. If you try to do this, the provisioning password will not be saved to flash and you will see the error <code>cfgFlashUpdate: Length [n] is longer than 32 for device.prov.password</code> in the phone's app log.</p>
+
+        </main>
+        <footer>
+            
+        </footer>
+    </body>
+</html>

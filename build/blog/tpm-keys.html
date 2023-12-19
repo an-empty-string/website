@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>TPM2-backed SSH keys on NixOS (tris.fyi)</title>
+        <link rel="stylesheet" href="/static/index2.css">
+        
+<link rel="stylesheet" href="/static/pygments.css">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+    </head>
+    <body>
+        <header>
+            
+<span><a href="/">tris.fyi</a> &gt; <a href="/blog/">blog</a> &gt;</span>
+<h1>TPM2-backed SSH keys on NixOS</h1>
+<div>
+    
+    <em>
+        
+        posted 2022-08-18
+        
+    </em>
+</div>
+<hr />
+
+<details>
+    <summary>Table of Contents</summary>
+    <div class="toc">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#configuring-the-tpm">Configuring the TPM</a></li>
+<li><a href="#configuring-openssh">Configuring OpenSSH</a></li>
+<li><a href="#potential-future-work">Potential future work</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
+
+</details>
+<hr />
+
+
+        </header>
+        <main>
+            
+<h2 id="introduction">Introduction</h2>
+<p>If you are here, I am assuming you already know why it's useful to store keys on a TPM, so I won't write about my rationale here.</p>
+<p>There are a few components to understand here:</p>
+<ul>
+<li>The TPM hardware itself generates and stores keys</li>
+<li><code>tpm2-abrmd</code> is the Access Broker and Resource Manager Daemon, which exposes access to the TPM chip over dbus</li>
+<li><code>tpm2-pkcs11</code> provides a PKCS#11 interface to keys stored on the TPM, allowing many applications (including OpenSSH) a way to use the keys managed by the TPM</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<p>Let's make sure those components are all installed and configured appropriately:</p>
+<ul>
+<li>You may need to enable the TPM in your system's firmware setup. Be sure to enable it as in 2.0 mode; certain ThinkPads seem to support 1.2 and 2.0 but only 2.0 will work for this.</li>
+<li>Install all of the components required. On NixOS, that's this snippet in your <code>configuration.nix</code>:</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>security<span class="o">.</span><span class="ss">tpm2</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="ss">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+  pkcs11<span class="o">.</span><span class="ss">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+  abrmd<span class="o">.</span><span class="ss">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+<span class="p">};</span>
+
+environment<span class="o">.</span><span class="ss">systemPackages</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="c1"># your other desired systemPackages</span>
+  tpm2-tools
+<span class="p">];</span>
+</code></pre></div>
+
+<ul>
+<li>The next steps will need to be completed as your regular user. You will need the environment variable <code>TPM2TOOLS_TCTI</code> set to <code>tabrmd:bus_type=system</code>. I use <code>home-manager</code>, so I configured this in <code>home.sessionVariables</code>, but you can add an <code>export</code> in your shell initialization file and it should work fine that way too. To cause less noise later on, set <code>TSS2_LOG</code> to <code>fapi+NONE</code> too.</li>
+</ul>
+<h2 id="configuring-the-tpm">Configuring the TPM</h2>
+<p>Now we can initialize the TPM and generate our keys.</p>
+<p>First, initialize an object hierarchy within the TPM, store that information in <code>tpm2-pkcs11</code>'s database, and return a handle that we can use in future commands.</p>
+<div class="codehilite"><pre><span></span><code><span class="o">%</span><span class="w"> </span><span class="n">tpm2_ptool</span><span class="w"> </span><span class="n">init</span>
+<span class="n">action</span><span class="p">:</span><span class="w"> </span><span class="n">Created</span>
+<span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+</code></pre></div>
+
+<p>The <code>id</code> returned is that of the "primary object" of the hierarchy. We will need this number in future commands. It's probably <code>1</code>, but change the <code>--pid</code> option in later commands if you need to.</p>
+<p>Next, we'll create a PKCS11 token. You have to pass a sopin ("system operator" PIN, for recovery/admin purposes) and a userpin (the PIN you will usually use to unlock the keys of this token) on the command line in this step, so consider <code>export HISTFILE=/dev/null</code> so those don't get stored in your shell history.</p>
+<p>The <code>label</code> can be anything you want, and both PINs can contain non-numeric characters if you like.</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>tpm2_ptool<span class="w"> </span>addtoken<span class="w"> </span>--pid<span class="o">=</span><span class="m">1</span><span class="w"> </span>--label<span class="o">=</span>ftpmtoken1<span class="w"> </span>--sopin<span class="o">=</span>youradminpassword<span class="w"> </span>--userpin<span class="o">=</span>youruserpassword
+</code></pre></div>
+
+<p>Next, create a key on the newly created token. <code>--label</code> and <code>--userpin</code> must match what you used before. Multiple algorithms are available (<code>tpm2_ptool addkey --help</code>) but not all of them are necessarily supported by your TPM.</p>
+<p>To see if your TPM supports a specific ECC curve, try <code>tpm2_getcap ecc-curves</code>. To see if your TPM supports a specific RSA key size, try <code>tpm2_testparms rsa[bits]</code>, like <code>tpm2_testparams rsa4096</code>. If no error is returned, you can use that key size.</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>tpm2_ptool<span class="w"> </span>addkey<span class="w"> </span>--algorithm<span class="o">=</span>ecc256<span class="w"> </span>--label<span class="o">=</span>ftpmtoken1<span class="w"> </span>--userpin<span class="o">=</span>youruserpassword
+</code></pre></div>
+
+<h2 id="configuring-openssh">Configuring OpenSSH</h2>
+<p>Now we can get our public key from the TPM:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>ssh-keygen<span class="w"> </span>-D<span class="w"> </span>/run/current-system/sw/lib/libtpm2_pkcs11.so
+<span class="go">WARNING: Listing FAPI token objects failed: &quot;fapi:A parameter has a bad value&quot;</span>
+<span class="go">Please see https://github.com/tpm2-software/tpm2-pkcs11/blob/master/docs/FAPI.md for more details</span>
+<span class="go">WARNING: FAPI backend was not initialized.</span>
+<span class="go">ecdsa-sha2-nistp256 [...]</span>
+</code></pre></div>
+
+<p>You can safely ignore the FAPI warnings, if any appear for you. Install the SSH public key on whatever hosts you need to access, then:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>ssh<span class="w"> </span>-o<span class="w"> </span><span class="nv">IdentityAgent</span><span class="o">=</span>none<span class="w"> </span>-o<span class="w"> </span><span class="nv">PKCS11Provider</span><span class="o">=</span>/run/current-system/sw/lib/libtpm2_pkcs11.so<span class="w"> </span>user@host
+</code></pre></div>
+
+<p>You should be prompted for your token PIN here.</p>
+<p>You only need to set <code>IdentityAgent=none</code> to bypass using your usual SSH agent (in my case, this is <code>gpg-agent</code> configured to use keys stored on a YubiKey, so I'm skipping the "insert token" prompt this way).</p>
+<p>You may configure these options in your <code>~/.ssh/config</code> as well, to save on typing.</p>
+<h2 id="potential-future-work">Potential future work</h2>
+<ul>
+<li>Get keys stored with the Feature API instead of just ignoring errors (this is the <code>fapi</code> in <code>TSS2_LOG=fapi+NONE</code>)</li>
+<li>Ignore errors even harder (I already do this <a href="https://github.com/an-empty-string/home-config/blob/main/sys/modules/laptop.nix#L112">here</a>, I just haven't documented it yet)</li>
+<li>Bind keys to boot measurements</li>
+<li>Use keys in other applications (like Firefox for HTTPS client certs)</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://leo60228.space/trusting-ssh-keys-using-a-centralized-hardware-secret/">leo60228.space</a>, some of the <code>tpm2-pkcs11</code> commands originally came from here!</li>
+</ul>
+
+        </main>
+        <footer>
+            
+        </footer>
+    </body>
+</html>

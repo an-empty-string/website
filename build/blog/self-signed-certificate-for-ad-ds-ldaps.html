@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Self-signed certificate for AD DS LDAPS (tris.fyi)</title>
+        <link rel="stylesheet" href="/static/index2.css">
+        
+<link rel="stylesheet" href="/static/pygments.css">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+    </head>
+    <body>
+        <header>
+            
+<span><a href="/">tris.fyi</a> &gt; <a href="/blog/">blog</a> &gt;</span>
+<h1>Self-signed certificate for AD DS LDAPS</h1>
+<div>
+    
+    <em>
+        
+        posted 2020-10-14
+        
+    </em>
+</div>
+<hr />
+
+
+        </header>
+        <main>
+            
+<p>Sometimes you need to talk to Active Directory Domain Services using a secure LDAP connection but you're okay with using a self-signed certificate (in my case, I have a set of internal tools which can be told not to validate certificates, but enforces TLS; I use these internal tools before deploying Certificate Services and a trusted certificate). Here is how to do it.</p>
+<p>You need to run all of these commands in an elevated PowerShell prompt.</p>
+<div class="codehilite"><pre><span></span><code><span class="nv">$name</span> <span class="p">=</span> <span class="s2">&quot;dc.ad.companydomain.com&quot;</span>
+<span class="nv">$cert</span> <span class="p">=</span> <span class="nb">New-SelfSignedCertificate</span> <span class="n">-DnsName</span> <span class="nv">$name</span> <span class="n">-CertStoreLocation</span> <span class="n">Cert</span><span class="p">:\</span><span class="n">LocalMachine</span><span class="p">\</span><span class="n">My</span>
+
+<span class="nv">$path</span> <span class="p">=</span> <span class="s2">&quot;HKLM:\Software\Microsoft\Cryptography\Services\NTDS\SystemCertificates\My\Certificates&quot;</span>
+<span class="k">if</span><span class="p">(!(</span><span class="nb">Test-Path</span> <span class="nv">$path</span><span class="p">))</span> <span class="p">{</span> <span class="nb">New-Item</span> <span class="n">-Force</span> <span class="nv">$path</span> <span class="p">}</span>
+
+<span class="nb">Copy-Item</span> <span class="n">-Path</span> <span class="s2">&quot;HKLM:\Software\Microsoft\SystemCertificates\My\Certificates\</span><span class="p">$(</span><span class="nv">$cert</span><span class="p">.</span><span class="n">Thumbprint</span><span class="p">)</span><span class="s2">&quot;</span> <span class="n">-Destination</span> <span class="nv">$path</span>
+</code></pre></div>
+
+<p>The certificate will immediately start being used by AD DS; you don't need to restart services or reboot the machine. AD DS uses the standard LDAPS port (636).</p>
+
+        </main>
+        <footer>
+            
+        </footer>
+    </body>
+</html>

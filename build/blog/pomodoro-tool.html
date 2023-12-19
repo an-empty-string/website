@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>My Pomodoro tool (tris.fyi)</title>
+        <link rel="stylesheet" href="/static/index2.css">
+        
+<link rel="stylesheet" href="/static/pygments.css">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+    </head>
+    <body>
+        <header>
+            
+<span><a href="/">tris.fyi</a> &gt; <a href="/blog/">blog</a> &gt;</span>
+<h1>My Pomodoro tool</h1>
+<div>
+    
+    <em>
+        
+        posted 2021-04-09
+        
+    </em>
+</div>
+<hr />
+
+
+        </header>
+        <main>
+            
+<p>Back in February I wrote a <a href="https://gist.github.com/an-empty-string/a4706537cd9ffaf5f67d3f49a8540fea">Pomodoro tool</a> which runs as a service on your own machine and communicates using MQTT. Here is how to use it:</p>
+<ul>
+<li>Make sure you have a newish Python (probably 3.7 or higher? not sure) and MQTT daemon running locally (I use mosquitto)</li>
+<li>Install the script's Python dependency: <code>pip install asyncio-mqtt</code></li>
+<li>Write a JSON config object to <code>~/.pomodoro.json</code> including the keys <code>work_time</code> and <code>break_time</code>: <code>{"work_time": 1500, "break_time": 300}</code> is a standard Pomodoro timer. You can also set <code>wait_for_break</code> to true to require sending the trigger command to start a break after a work period (the default) or false to automatically continue to a break. You can also set <code>use_emoji</code> to true to use emoji (I don't remember what this means)</li>
+<li>Download the script and put it somewhere (I use my <code>~/bin</code> for this)</li>
+<li>Set it up to run on login using a systemd unit or something and start the script</li>
+<li>Get statusline output with <code>mosquitto_sub -t pomodoro/statusline</code></li>
+<li>Send commands to the service with <code>mosquitto_pub -t pomodoro/command -m action</code>. The action can be <code>trigger</code> (start/pause timer), <code>reset</code> (resets timer), <code>done</code> (stops the current work period and moves to a break), and <code>reload</code> (reloads config).</li>
+</ul>
+<p>I use this systemd unit in <code>~/.config/systemd/user/pomodoro.service</code> (<code>systemctl --user enable --now pomodoro.service</code>):</p>
+<div class="codehilite"><pre><span></span><code><span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span><span class="s">Pomodoro daemon service</span>
+
+<span class="k">[Service]</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/home/tris/.pyenv/shims/python3 %h/bin/pomodoro.py</span>
+
+<span class="k">[Install]</span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">default.target</span>
+</code></pre></div>
+
+<p>I use this config in my <code>~/.i3blocks.conf</code> to display timer status:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">[pomodoro]</span>
+<span class="na">label</span><span class="o">=</span><span class="s">🍅</span>
+<span class="na">command</span><span class="o">=</span><span class="s">mosquitto_sub -t pomodoro/statusline</span>
+<span class="na">interval</span><span class="o">=</span><span class="s">persist</span>
+</code></pre></div>
+
+<p>I use these shell aliases also:</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">pom</span><span class="o">=</span><span class="s1">&#39;mosquitto_pub -t pomodoro/command -m&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">pt</span><span class="o">=</span><span class="s1">&#39;pom trigger&#39;</span>
+</code></pre></div>
+
+<p>You can subscribe to the topics <code>pomodoro/state</code> and <code>pomodoro/time-remaining</code> from your own tools if you want to do stuff like send a notification whenever you should take a break.</p>
+
+        </main>
+        <footer>
+            
+        </footer>
+    </body>
+</html>

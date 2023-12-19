@@ -1,0 +1,214 @@
+{% extends "base.html" %}
+{% set page_title = "bookmarks" %}
+{% set page_description = "tris's public bookmarks list, with links to stuff she finds useful and/or interesting" %}
+{% block header %}
+<span><a href="/">tris.fyi</a> &gt; bookmarks</span>
+<h1>bookmarks</h1>
+{% endblock %}
+{% block content %}
+<nav>
+    <a href="#publications">publications</a> &middot;
+    <a href="#music">music</a> &middot;
+    <a href="#sidequests">quests</a> &middot;
+    <a href="#data">data</a> &middot;
+    <a href="#osm">osm</a> &middot;
+    <a href="#places">places</a> &middot;
+    <a href="#gender">gender</a> &middot;
+    <a href="#jokes">jokes</a> &middot;
+    <a href="#random">random</a>
+</nav>
+<div class="flex-row">
+    <input type="text" id="search" placeholder="search bookmarks... (requires javascript)" autofocus />
+</div>
+<section id="publications">
+    <h2>cool blogposts/papers/whatever</h2>
+    <ul>
+        <li><a href="https://www.bitsaboutmoney.com/archive/charitable-donations-infrastructure/">bits about money &mdash; charitable donations and the infrastructure supporting them</a> &mdash; a fascinating article about donor advised funds (time travel mechanism for rich people to do more tax deductions)</li>
+        <li>allowing bicyclists to follow leading pedestrian signals <a href="https://www.nyc.gov/html/dot/downloads/pdf/bike-lpi-study-memo.pdf">is safe, according to nyc dot</a></li>
+        <li><a href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2809058">access to gender-affirming healthcare (statistically significantly) reduces suicidality</a> (<a href="nolan_2023_oi_230926_1692977943.94493.pdf">archived on tris.fyi, updated 2023-09-08</a>)</li>
+        <li><a href="https://subpixel.space/entries/open-transclude">open transclude for networked writing</a> &mdash; a neat way of using iframes to cite other content</li>
+        <li><a href="https://grahamc.com/blog/erase-your-darlings/">erase your darlings</a> &mdash; applying immutable infra principles to stateful systems</li>
+    </ul>
+</section>
+<section id="music">
+<h2>music</h2>
+<ul>
+    <li>
+        <a href="https://www.youtube.com/watch?v=tXKZfjH58uA">adele mcallister &mdash; come to the water</a><br />
+        <em>
+            don't you know we were made to nurture the earth? <br /> to feed the hungry and to bind up the hurt <br />
+            to fight injustice, to aid, not to judge <br /> and above everything else, we were made for love
+        </em>
+    </li>
+    <li>
+        <a href="https://milesmorkri.bandcamp.com/album/ventifact">miles morkri &mdash; ventifact</a> &mdash; pretty cool mostly instrumental album! hard to pick a favorite track
+    </li>
+    <li>
+        <a href="https://aivisura.bandcamp.com/album/the-black-box-10th-anniversary-deluxe-edition">aivi &amp; surasshu &mdash; the black box (10th anniversary deluxe edition)</a> &mdash;
+        some really cool bonus tracks! i remember listening to the original album on the bus in high school. makes me feel kinda old. honestly check out all of the <a href="https://infloresce.bandcamp.com/">infloresce&nbsp;records</a> stuff. aivi <em>does not miss</em>
+    </li>
+    <li>
+        <a href="https://emperorx.bandcamp.com/album/suggested-improvements-to-transportation-infrastructure-in-the-northeast-corridor">emperor x &mdash; suggested improvements to transportation infrastructure in the northeast corridor</a> &mdash;
+        very cozy memories from when i heard the first and last tracks on this one for the first time, at a college radio station. hopefully y'all know who you are, thanks for a great birthday &lt;3
+    </li>
+</ul>
+</section>
+<section id="sidequests">
+<h2>sidequests</h2>
+<ul>
+    <li><a href="https://docs.google.com/spreadsheets/d/1nvaFerB36Ts8_XKNgdYhwdtGG6y2p5Bqe1K45xsfEag/edit?usp=sharing">surveying all boston fire department fireboxes</a> (medford/somerville boxes included too, but the medford list isn't complete because i haven't found any authoritative-looking list)</li>
+</ul>
+</section>
+<section id="data">
+<h2>data</h2>
+<ul>
+    <li><a href="https://services2.arcgis.com/C8EMgrsFcRFL6LrL/arcgis/rest/services/NGS_Datasheets_Feature_Service/FeatureServer">every geodetic marker in one arcgis feature service</a> (<span class="tag">ngs</span>)</li>
+    <li><a href="https://data.mbta.com/views/SpeedRestrictions_prod/1_OverviewDashboard">mbta speed restrictions dashboard (direct link)</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/List_of_United_States_FIPS_codes_by_county">county fips codes</a></li>
+    <li><a href="https://www.census.gov/programs-surveys/acs/data/data-tables/table-ids-explained.html">american community survey data table IDs explained</a> (<span class="tag">census</span>, <span class="tag">acs</span>)</li>
+    <li><a href="ftp://ftp2.census.gov/programs-surveys/acs/summary_file/2021/table-based-SF/data/5YRData">(ftp://) 2021 american community survey data down to blockgroup geography, 5-year averages</a> (<span class="tag">census</span>, <span class="tag">acs</span>)</li>
+    <li><a href="https://www2.census.gov/programs-surveys/acs/summary_file/2021/table-based-SF/documentation/ACS20215YR_Table_Shells.txt">descriptions of tables and fields in the above dataset</a> (<span class="tag">census</span>, <span class="tag">acs</span>)</li>
+    <li><a href="https://maps.huntsvilleal.gov/server/rest/services">huntsville, al arcgis rest endpoint</a></li>
+</ul>
+</section>
+<section id="osm">
+<h2>helpful openstreetmap tools</h2>
+<ul>
+    <li><a href="https://openingh.ypid.de/evaluation_tool/">opening_hours evaluator</a></li>
+    <li><a href="https://taginfo.openstreetmap.org/">taginfo</a>, check if you're using a tag correctly, discover new tags</li>
+    <li><a href="https://ent8r.github.io/NotesReview/">notesreview</a>, find nearby notes that have been open for a long time</li>
+    <li><a href="https://osmcha.org/">osmcha</a> changeset validation tool</li>
+</ul>
+</section>
+<section id="places">
+<h2>places</h2>
+<ul>
+    <li><a href="https://bostonfirehistory.org/wp-content/uploads/sites/51/2021/03/firealarmmapsc1983.pdf">1983 map of fireboxes in boston</a></li>
+    <li><a href="https://www.coldwarcomms.org/Maps/">long lines maps (scans)</a></li>
+    <li><a href="https://long-lines.com/">long lines maps (overlaid on google maps)</a></li>
+</ul>
+</section>
+<section id="gender">
+<h2>gender <!-- i barely know her --></h2>
+<ul>
+    <li><a href="https://gothfem.me/voice-training/">kat's voice training exercises</a></li>
+    <li><a href="https://www.reddit.com/r/transvoice/comments/d3clhe/ls_voice_training_guide_level_1_for_mtf/">L's voice training exercises</a></li>
+    <li><a href="https://erininthemorn.substack.com/">erin in the morning (publishes a legislative risk map)</a></li>
+</ul>
+</section>
+<section id="jokes">
+    <h2>all of my other weird jokes <small>(in alphabetical order)</small></h2>
+<ul>
+    <li><a href="https://bisexual.lighting">bisexual (dot) lighting</a></li>
+    <li><a href="https://cornonthec.observer">corn on the c (dot) observer (corn on the cob server)</a> &mdash; pretty sure this domain name is yafah's fault</li>
+    <li><a href="https://entirely.red">entirely (dot) red</a></li>
+    <li><a href="http://hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh.website/">hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh (dot) website</a></li>
+    <li><a href="https://jeffsessions.online">jeff sessions (dot) online</a></li>
+    <li><a href="https://nothing.delivery">nothing (dot) delivery</a></li>
+    <li><a href="https://ransomware.link">ransomware (dot) link</a></li>
+    <li><a href="https://rotating.fish">rotating (dot) fish</a></li>
+    <li><a href="https://rotating.horse">rotating (dot) horse</a></li>
+    <li><a href="https://turquoise.website">turquoise (dot) website</a></li>
+    <li><a href="https://zeroisanaturalnumber.party">zero is a natural number (dot) party</a></li>
+</ul>
+</section>
+<section id="random">
+<h2>random other stuff</h2>
+<ul>
+    <li>that one time i went to yell at legislators about trans rights, learned that only one person was going to be allowed to speak per issue, and then went <a href="https://www.huntsvilleal.gov/videos/state-legislative-delegation-forum-pt1-feb-2023/">uhhhhh, trans... portation policy! transportation policy.</a> (32:53)</li>
+    <li><a href="https://www.nist.gov/system/files/documents/2023/05/15/SRM%20Catalog.pdf">nist srm catalog (2023-05-15)</a></li>
+    <li><a href="https://cdn.mbta.com/sites/default/files/fmcb-meeting-docs/reports-policies/2018-08-13-station-naming-policy.pdf">policy on the naming of mbta stations (updated 2018-08-13)</a>
+    <li><a href="https://www.massmetrofire.org/sites/default/files/Metrofire%20Mutual%20Aid%20System%20for%20COMPUTER%20VIEWING.pdf">metrofire mutual aid running cards</a> (<a href="/metrofire-mutual-aid.pdf">archived on tris.fyi, updated 2023-08-09</a>)</li>
+    <li><a href="http://roster.transithistory.org/MBTARouteHistory.pdf">changes to transit service in the mbta district, 1964-2023</a> (<a href="/MBTARouteHistory.pdf">archived on tris.fyi, updated 2023-08-09</a>)</li>
+    <li><a href="https://brailleinstitute.org/freefont">atkinson hyperlegible</a>, the font used on this very page!!!</li>
+    <li><a href="https://www.cs.uah.edu/~fcw0002/tortellini.gif">tortellini.gif</a> (mine)</li>
+    <li><a href="https://www.cs.uah.edu/~fcw0002/public_html/_notes/bbts.html">blackboard transact charge protocol reveng docs</a> (mine)</li>
+    <li><a href="https://www.cs.uah.edu/~fcw0002/lockpicking.pdf">mit guide to lock picking</a></li>
+    <li><a href="https://www.cs.uah.edu/~fcw0002/origins.call-list.html">radio station call origins</a></li>
+    <li><a href="https://john.citrons.xyz/">johnvertising</a></li>
+    <li><a href="https://iamkate.com/data/12-bit-rainbow/">the 12-bit rainbow palette</a></li>
+    <li><a href="https://djlorenz.github.io/astronomy/lp2020/overlay/dark.html">light pollution atlas 2020 (david lorenz)</a></li>
+    <li><a href="https://nimi.pona.la/">a toki pona dictionary (nimi.pona.la)</a></li>
+</ul>
+<script>
+    var targetLink;
+
+    function rehighlight() {
+        var el = document.querySelector(".highlight");
+        if(el) {
+            el.classList.remove("highlight");
+        }
+
+        if(location.hash) {
+            var allowedSection = location.hash.slice(1);
+            el = document.getElementById(allowedSection);
+            if(el) {
+                console.log(el);
+                el.scrollIntoView();
+                el.classList.add("highlight");
+            }
+        }
+    }
+    rehighlight();
+    window.addEventListener("hashchange", rehighlight);
+
+    function textMatch(needle, haystack) {
+        var words = needle.split(" ");
+
+        for(var i = 0; i < words.length; i++) {
+            if(haystack.indexOf(words[i]) === -1) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    function searchBookmarks() {
+        var query = document.getElementById("search").value.toLowerCase();
+
+        var visibleLinks = 0;
+
+        targetLink = null;
+        document.querySelectorAll("section").forEach(function(section) {
+            var sectionHasContent = false;
+
+            section.querySelectorAll("li").forEach(function(li) {
+                if(!textMatch(query, li.innerText.toLowerCase())) {
+                    li.style.display = "none";
+                }
+                else {
+                    li.style.display = "list-item";
+                    visibleLinks++;
+                    sectionHasContent = true;
+
+                    if(!targetLink) targetLink = li.querySelector("a");
+                }
+            });
+
+            if(sectionHasContent) {
+                section.style.display = "block";
+            }
+            else {
+                section.style.display = "none";
+            }
+        });
+    }
+
+    function tryNavigateToBookmark(event) {
+        if(event.key === "Enter") {
+            if(targetLink) {
+                targetLink.click();
+            }
+        }
+    }
+
+    var searchBox = document.getElementById("search");
+    searchBox.addEventListener("keydown", tryNavigateToBookmark);
+    searchBox.addEventListener("keydown", searchBookmarks);
+    searchBox.addEventListener("keyup", searchBookmarks);
+
+    searchBox.value = "";
+    searchBox.focus();
+</script>
+{% endblock %}

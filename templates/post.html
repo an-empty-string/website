@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% set page_title = meta.title|safe %}
+{% if meta.summary %}{% set page_description = meta.summary %}{% endif %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for("static", filename="pygments.css") }}">
+{% endblock %}
+
+{% block header %}
+<span><a href="/">tris.fyi</a> &gt; <a href="/blog/">blog</a> &gt;</span>
+<h1>{{ meta.title|safe }}</h1>
+<div>
+    {% if meta.author is defined %}
+    written by {{ meta.author|default("Tris Emmy Wilson")|safe }}<br />
+    {% endif %}
+    <em>
+        {% if meta.updated_on %}
+        posted {{ meta.posted_on }}; last updated {{ meta.updated_on }}
+        {% else %}
+        posted {{ meta.posted_on }}
+        {% endif %}
+    </em>
+</div>
+<hr />
+{% if toc and meta.show_toc|default(true) %}
+<details>
+    <summary>Table of Contents</summary>
+    {{ toc|safe }}
+</details>
+<hr />
+{% endif %}
+{% endblock %}
+
+{% block content %}
+{{ post|safe }}
+{% endblock %}

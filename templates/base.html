@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}{{ page_title }} (tris.fyi){% endblock %}</title>
+        <link rel="stylesheet" href="{{ url_for("static", filename="index2.css") }}">
+        {% block head %}{% endblock %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="{% block description %}{% endblock %}">
+    </head>
+    <body>
+        <header>
+            {% block header %}
+            <h1>{{ page_title }}</h1>
+            {% endblock %}
+        </header>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+        <footer>
+            {% block footer %}{% endblock %}
+        </footer>
+    </body>
+</html>

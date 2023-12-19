@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% set page_title = "Blog posts" %}
+
+{% block header %}
+<span><a href="/">tris.fyi</a></span> &gt; blog
+<h1>Blog posts / lab notebook / random thoughts</h1>
+{% endblock %}
+
+{% block content %}
+{% for year, year_posts in posts %}
+<h2>{{ year }}</h2>
+<ul class="mediummargins nobullet">
+    {% for post, meta in year_posts %}
+    <li><a href="{{ url_for("post", slug=post.split(".")[0]) }}">{{ meta.posted_on.strftime("%B %d") }}: {{ meta.title|safe }}</a></li>
+    {% endfor %}
+</ul>
+{% endfor %}
+{% endblock %}

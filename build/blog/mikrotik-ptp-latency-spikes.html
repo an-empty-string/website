@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>MikroTik point-to-point link packet loss and latency spikes (tris.fyi)</title>
+        <link rel="stylesheet" href="/static/index2.css">
+        
+<link rel="stylesheet" href="/static/pygments.css">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+    </head>
+    <body>
+        <header>
+            
+<span><a href="/">tris.fyi</a> &gt; <a href="/blog/">blog</a> &gt;</span>
+<h1>MikroTik point-to-point link packet loss and latency spikes</h1>
+<div>
+    
+    <em>
+        
+        posted 2021-01-19
+        
+    </em>
+</div>
+<hr />
+
+
+        </header>
+        <main>
+            
+<p>At home, I run a pair of SXTsq 5 ac devices to span my network to a place where
+I can't be bothered to run a cable to just yet. After installing a VoIP phone
+in that location, I noticed reoccurring periods of time (about 17 seconds each,
+maybe varying from 15-20 seconds) where packet loss was high. This was made
+clear by choppy audio on phone calls.</p>
+<p>After further debugging, these drops were occurring almost 5 minutes apart,
+down to the second. I initially thought this was some external interference
+source, but that was not the case (confirmed with another device and the
+frequency-monitor tool built-in to RouterOS). It turns out that RouterOS
+wireless clients will automatically scan for APs with better signal when they
+are connected to an 802.11 wireless network. This process can cause
+disconnections and periods of high latency.</p>
+<p>You can disable this behavior with <code>/interface wireless set station-roaming=disabled [interface].</code></p>
+
+        </main>
+        <footer>
+            
+        </footer>
+    </body>
+</html>

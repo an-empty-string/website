@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% set page_title = "cool tris facts" %}
+{% set page_description = "tris emmy wilson's personal website. you can find her projects, and organizations she is involved with, here" %}
+
+{% block content %}
+<div>
+    <ul>
+        <li>
+            <strong>tris emmy wilson</strong> <em>(she/her)</em> is going places and doing things
+            <ul>
+                <li>mostly in the greater boston area</li>
+                <li>admiring infrastructure</li>
+                <li>riding trains</li>
+                <li>misses being able to see the stars</li>
+            </ul>
+        </li>
+        <li>sometimes takes <a href="https://glass.photo/tris">pictures of said places and things</a></li>
+        <li>occasionally writes in her <a href="/blog">blog/lab notebook/random thoughts container</a></li>
+        <li>can be reached via email at <a href="mailto:tris@tris.fyi">tris@tris.fyi</a>, and on the fediverse at <a rel="me" href="https://tacobelllabs.net/@tris">taco bell labs</a> (i love meeting interesting new folks, feel free to say hi!)</li>
+        <li>during the workday, is building cloud infrastructure for a nonprofit in the political activism space</li>
+        <li>is a proud member of ifpte local 70, the <a href="https://npeu.org">nonprofit professional employees union</a>!</li>
+        <li>
+            does some volunteer organizing and related projects: <ul>
+                <li>alumna, <a href="https://podcasts.apple.com/us/podcast/hsv-progressive/id1607449316">hsv progressive</a> (a huntsville, alabama local politics podcast)</li>
+                <li><a href="https://altrac.works">altrac</a> (the alabama trans rights action coalition)</li>
+                <li>north alabama <a href="https://dsausa.org">democratic socialists</a></li>
+                <li><strong>your org??</strong> i can help with geospatial data analysis, digital organizing tech, and bespoke tools/server infrastructure &mdash; <em>please</em> email me if you represent a progressive nonprofit that needs help in any of these areas</li>
+            </ul>
+        </li>
+        <li>is a map/geospatial data enthusiast, openstreetmap foundation member, and huge census bureau fan</li>
+        <li>can speak <a href="https://tokipona.org">toki pona</a></li>
+        <li>is unapologetically queer and trans</li>
+    </ul>
+</div>
+
+<section>
+    <h2>other stuff i made</h2>
+    <ul class="bigmargins">
+        <li><a href="/blog/legal-name.html">changing your legal name in madison county, alabama</a></li>
+        <li><a href="/wmata">almost every wmata 7000-series train announcement</a></li>
+        <li><a href="/bookmarks.html">a public bookmarks list</a></li>
+        <li><a href="/towns.html">even worse massachusetts town names</a></li>
+        <li><a href="https://districts.socialism.gay">districts.socialism.gay</a>, a tool for matching geographic coordinates to united states legislative districts (state level and congressional)</li>
+        <li><a href="https://doesthegreenline.work">does the green line work?</a> (spoiler: probably not)</li>
+    </ul>
+</section>
+<hr>
+<div>
+    <p><strong>cookie policy:</strong> the author of this website likes them, mostly oatmeal raisin but others are ok too. please give her some</p>
+</div>
+{% endblock %}
+
+{% block footer %}
+<hr>
+<a href="https://tris.fyi"><img src="{{ url_for("static", filename="badges/tris.png") }}" alt="tris"></a>
+<a target="_blank" href="https://philo.gay"><img src="{{ url_for("static", filename="badges/philo.png") }}" alt="philo"></a>
+<a target="_blank" href="https://breq.dev"><img src="{{ url_for("static", filename="badges/breq.png") }}" alt="brooke"></a>
+<a target="_blank" href="https://avasilver.dev"><img src="{{ url_for("static", filename="badges/ava.png") }}" alt="ava"></a>
+<a target="_blank" href="https://nkizz.com"><img src="{{ url_for("static", filename="badges/nkizz.png") }}" alt="nkizz"></a>
+<a target="_blank" href="https://pixilic.com/?ref=clicky"><img src="{{ url_for("static", filename="badges/hunter.png") }}" alt="hunter"></a>
+{% endblock %}

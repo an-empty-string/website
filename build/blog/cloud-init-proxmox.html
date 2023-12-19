@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Debian, cloud-init, and Proxmox (tris.fyi)</title>
+        <link rel="stylesheet" href="/static/index2.css">
+        
+<link rel="stylesheet" href="/static/pygments.css">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+    </head>
+    <body>
+        <header>
+            
+<span><a href="/">tris.fyi</a> &gt; <a href="/blog/">blog</a> &gt;</span>
+<h1>Debian, cloud-init, and Proxmox</h1>
+<div>
+    
+    <em>
+        
+        posted 2021-04-15
+        
+    </em>
+</div>
+<hr />
+
+
+        </header>
+        <main>
+            
+<p>The Debian OpenStack cloud images will work fine in Proxmox if you add a serial port to the VM (if you don't have a serial port, they won't boot properly).</p>
+<p>If you specify the username <code>root</code> in your cloud-init configuration, cloud-init will ignore SSH key options (like the "cert-authority" flag). Specify any other username and your SSH key options will be respected.</p>
+
+        </main>
+        <footer>
+            
+        </footer>
+    </body>
+</html>

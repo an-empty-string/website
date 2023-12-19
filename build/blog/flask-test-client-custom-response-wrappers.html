@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Flask test client custom response wrappers (tris.fyi)</title>
+        <link rel="stylesheet" href="/static/index2.css">
+        
+<link rel="stylesheet" href="/static/pygments.css">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+    </head>
+    <body>
+        <header>
+            
+<span><a href="/">tris.fyi</a> &gt; <a href="/blog/">blog</a> &gt;</span>
+<h1>Flask test client custom response wrappers</h1>
+<div>
+    
+    <em>
+        
+        posted 2020-10-13
+        
+    </em>
+</div>
+<hr />
+
+
+        </header>
+        <main>
+            
+<p>In the Flask web framework, requests on test clients return response objects which have various attributes (<code>data</code> being the most important). It would be useful to be able to wrap the response objects to add utility methods that allow us to parse data and get application-specific attributes from the response. Fortunately, Werkzeug test clients, and thus Flask test clients, can be constructed with a custom response wrapper class. First define the response wrapper class (it can inherit from <code>flask.wrappers.Response</code>).</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">CustomResponse</span><span class="p">(</span><span class="n">flask</span><span class="o">.</span><span class="n">wrappers</span><span class="o">.</span><span class="n">Response</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">has_error</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">b</span><span class="s2">&quot;Oh no something bad happened!&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span>
+</code></pre></div>
+
+<p>Then set <code>response_class</code> on the app:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">app</span> <span class="o">=</span> <span class="n">get_flask_app</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">response_class</span> <span class="o">=</span> <span class="n">CustomResponse</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">test_client</span><span class="p">()</span>
+</code></pre></div>
+
+<p>Set <code>app.response_class</code> wherever you do other configuration on the Flask object. It probably isn't a good idea to set it for responses in production, depending on what you do with/where you make response objects available.</p>
+
+        </main>
+        <footer>
+            
+        </footer>
+    </body>
+</html>
