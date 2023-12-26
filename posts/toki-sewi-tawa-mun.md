@@ -1,6 +1,8 @@
 ---
 title: toki sewi tawa mun
+summary: a prayer to the moon
 posted_on: 2023-01-13
+show_toc: no
 ---
 
 (a prayer to the moon)

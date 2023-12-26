@@ -1,0 +1,20 @@
+<rss version="2.0">
+    <channel>
+        <title>Tris's Blog</title>
+        <link>https://tris.fyi/blog/</link>
+        <description>Tris Emmy Wilson's lab notebook, random thoughts, and writeups of other projects.</description>
+        <language>en-US</language>
+        <docs>https://www.rssboard.org/rss-specification</docs>
+        <generator>Tris's Website Generator</generator>
+        <webMaster>blog@tris.fyi (Tris Emmy Wilson)</webMaster>
+
+        {% for slug, meta in posts %}
+        <item>
+            <title>{{ meta.title }}</title>
+            <link>{{ url_for("post", slug=slug, _external=True, _scheme="https") }}</link>
+            {% if meta.summary %}<description>{{ meta.summary }}</description>{% endif %}
+            <pubDate>{{ meta.posted_on.strftime("%a, %d %b %Y %T GMT") }}</pubDate>
+        </item>
+        {% endfor %}
+    </channel>
+</rss>

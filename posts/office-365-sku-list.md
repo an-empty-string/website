@@ -1,5 +1,6 @@
 ---
 title: Office 365 SKU list
+summary: A link to Microsoft's product code / SKU list for Office 365.
 posted_on: 2020-10-15
 show_toc: no
 ---

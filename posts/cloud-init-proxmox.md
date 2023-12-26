@@ -1,5 +1,6 @@
 ---
 title: Debian, cloud-init, and Proxmox
+summary: Notes on making the Debian cloud images work in Proxmox.
 posted_on: 2021-04-15
 show_toc: no
 ---

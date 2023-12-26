@@ -1,5 +1,6 @@
 ---
 title: Cycling in Alabama
+summary: References to a few Alabama Code sections and city ordinances that I find useful to have handy while cycling or planning a ride.
 posted_on: 2022-12-20
 show_toc: no
 ---

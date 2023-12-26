@@ -1,5 +1,6 @@
 ---
 title: Huntsville local government-related project starmap
+summary: A list of projects I was once working on to keep track of Huntsville local government.
 posted_on: 2022-09-19
 updated_on: 2023-12-19
 ---

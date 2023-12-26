@@ -1,5 +1,6 @@
 ---
 title: Windows IKEv2 client notes
+summary: Various notes on weird behavior exhibited by the built-in Windows IKEv2 VPN client.
 posted_on: 2020-12-04
 show_toc: no
 ---

@@ -1,5 +1,6 @@
 ---
 title: Pinning Debian packages to stable
+summary: Notes on using apt pinning to mix Debian packages from different distribution releases.
 posted_on: 2020-10-17
 show_toc: no
 ---

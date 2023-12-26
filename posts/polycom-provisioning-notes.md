@@ -1,5 +1,6 @@
 ---
 title: Polycom provisioning notes
+summary: Notes on the XML format used to provision Polycom phones.
 posted_on: 2021-06-21
 show_toc: no
 ---

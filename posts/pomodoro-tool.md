@@ -1,5 +1,6 @@
 ---
 title: My Pomodoro tool
+summary: How to install and use my MQTT-based Pomodoro system.
 posted_on: 2021-04-09
 show_toc: no
 ---

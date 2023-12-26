@@ -1,5 +1,6 @@
 ---
 title: Self-signed certificate for AD DS LDAPS
+summary: Notes on using a self-signed certificate for TLS-secured LDAP on an Active Directory domain controller.
 posted_on: 2020-10-14
 show_toc: no
 ---

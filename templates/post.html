@@ -33,4 +33,17 @@
 
 {% block content %}
 {{ post|safe }}
+
+<script>
+    var buttons = document.getElementsByTagName("button");
+    for(var i = 0; i < buttons.length; ++i) {
+        buttons[i].addEventListener("click", function() {
+            this.style.display = "none";
+            var text = this.parentElement.querySelector("small");
+
+            text.style.display = "inline";
+            text.style.padding = "0.5rem";
+        });
+    }
+</script>
 {% endblock %}

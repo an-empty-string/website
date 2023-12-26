@@ -1,5 +1,6 @@
 ---
 title: How I use Taskwarrior
+summary: Notes on my todo list workflow using Taskwarrior; future work.
 posted_on: 2022-08-25
 ---
 

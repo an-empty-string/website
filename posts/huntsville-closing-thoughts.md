@@ -1,5 +1,6 @@
 ---
 title: closing thoughts (Huntsville)
+summary: a personal piece about moving away from the city I lived in for seven years
 posted_on: 2023-01-31
 ---
 
@@ -60,4 +61,4 @@ there is a good chance that i haven't learned everything this city has taught me
 
 ## so, what am i going to do about it?
 
-i'm probably going to move somewhere on the northeast corridor, and i'm not going to put a whole lot of thought into where exactly, because i know i'll be fine wherever it is, and i'll be happier than where i am now. but i'll miss this place (and the people in it &ndash; actually, mostly that) dearly. but i'll be okay. and the city's wheels will keep turning, and maybe someday it'll become a place i actually want to live in.
+i'm probably going to move somewhere on the northeast corridor, and i'm not going to put a whole lot of thought into where exactly, because i know i'll be fine wherever it is, and i'll be happier than where i am now. but i'll miss this place (and the people in it &ndash; actually, mostly that) dearly.

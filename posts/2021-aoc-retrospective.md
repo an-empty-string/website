@@ -1,5 +1,6 @@
 ---
 title: 2021 Advent of Code retrospective
+summary: "Musings on the 2021 Advent of Code event: how I played, what I thought about the puzzles, my plans for 2022."
 posted_on: 2021-12-24
 ---
 

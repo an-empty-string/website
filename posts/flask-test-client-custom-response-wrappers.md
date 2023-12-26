@@ -1,5 +1,6 @@
 ---
 title: Flask test client custom response wrappers
+summary: Notes on using a custom response class when testing Flask apps.
 posted_on: 2020-10-13
 show_toc: no
 ---

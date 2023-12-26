@@ -6,6 +6,7 @@ import yaml
 from flask import Flask, abort, render_template
 
 app = Flask(__name__)
+app.config["SERVER_NAME"] = "tris.fyi"
 
 
 @app.route("/")
@@ -19,24 +20,35 @@ def bookmarks():
     return render_template("bookmarks.html")
 
 
-@app.route("/blog/")
-@app.route("/blog/index.html")
-def blog():
+def all_posts():
     posts = []
 
     for post in os.listdir("posts"):
         if not post.endswith(".md"):
             continue
 
+        slug = post.removesuffix(".md")
         with open(f"posts/{post}") as f:
             content = f.read()
             _, raw_meta, _ = content.split("---\n")
             meta = yaml.safe_load(raw_meta)
-            posts.append((post, meta))
+            posts.append((slug, meta))
 
     posts.sort(key=lambda pm: pm[1]["posted_on"], reverse=True)
+    return posts
+
+
+@app.route("/blog/")
+@app.route("/blog/index.html")
+def blog():
+    posts = all_posts()
     posts = itertools.groupby(posts, key=lambda pm: pm[1]["posted_on"].year)
     return render_template("blog.html", posts=posts)
+
+
+@app.route("/blog/rss.xml")
+def rss():
+    return render_template("rss.xml", posts=all_posts())
 
 
 @app.route("/blog/<slug>.html")
@@ -57,6 +69,9 @@ def post(slug):
             "toc",
         ]
     )
+
+    post = post.replace(" [!", '<span class="sidenote"><small>')
+    post = post.replace("!]", "</small><button>(show note)</button></span>")
 
     html_post = md.convert(post)
     return render_template(
