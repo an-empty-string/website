@@ -21,6 +21,10 @@
         {% endif %}
     </em>
 </div>
+{% if has_sidenotes|default(False) %}
+<p id="sidenotes-note">This article has sidenotes! Since you are on a mobile device, you may need to scroll horizontally to view them.</p>
+{% endif %}
+
 <hr />
 {% if toc and meta.show_toc|default(true) %}
 <details>

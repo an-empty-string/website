@@ -6,7 +6,8 @@ import yaml
 from flask import Flask, abort, render_template
 
 app = Flask(__name__)
-app.config["SERVER_NAME"] = "tris.fyi"
+if not os.environ["LOCAL"]:
+    app.config["SERVER_NAME"] = "tris.fyi"
 
 
 @app.route("/")
@@ -70,14 +71,22 @@ def post(slug):
         ]
     )
 
+    olen = len(post)
+
     post = post.replace(" [!", '<span class="sidenote"><small>')
-    post = post.replace("!]", "</small><button>(show note)</button></span>")
+    post = post.replace("!]", "</small></span>")
+
+    has_sidenotes = len(post) != olen
 
     html_post = md.convert(post)
     return render_template(
-        "post.html", meta=meta, post=html_post, toc=getattr(md, "toc", None)
+        "post.html",
+        meta=meta,
+        post=html_post,
+        toc=getattr(md, "toc", None),
+        has_sidenotes=has_sidenotes,
     )
 
 
 if __name__ == "__main__":
-    app.run(port=5050, debug=True)
+    app.run(host="0.0.0.0", port=5051, debug=True)
