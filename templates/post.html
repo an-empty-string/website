@@ -4,6 +4,11 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for("static", filename="pygments.css") }}">
+{% if meta.og_props %}
+{% for prop, value in meta.og_props.items() %}
+    <meta property="og:{{ prop }}" content="{{ value }}" />
+{% endfor %}
+{% endif %}
 {% endblock %}
 
 {% block header %}
@@ -22,7 +27,7 @@
     </em>
 </div>
 {% if has_sidenotes|default(False) %}
-<p id="sidenotes-note">This article has sidenotes! Since you are on a mobile device, you may need to scroll horizontally to view them.</p>
+<p id="sidenotes-note">This article has sidenotes! You may need to scroll horizontally to view them.</p>
 {% endif %}
 
 <hr />

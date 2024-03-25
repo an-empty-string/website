@@ -122,3 +122,65 @@ body {
     top: -0.5rem;
 }
 
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+figure {
+    margin: 0.7em;
+    padding: 0.1em;
+    max-width: 80vw;
+    flex: 1;
+}
+
+figure.noborder {
+    border: 0;
+}
+
+@media(prefers-color-scheme: dark) {
+    figure { border-color: white; }
+}
+
+figure > a { display: block; margin: auto; }
+
+figure img {
+    display: block;
+    margin: auto;
+    max-height: 16em;
+    width: auto;
+    max-width: 80vw;
+}
+
+figure figcaption {
+    font-size: 11pt;
+    text-align: center;
+}
+
+.header-image-row {
+    display: flex;
+    max-width: 45em;
+}
+
+.header-image-row figure {
+    margin: 0.1em;
+    padding: 0;
+}
+
+.header-image-row img {
+    width: 100%;
+}
+
+@media(max-width: 45em) {
+    .header-image-row, .row { display: block; }
+    .header-image-row figure {
+        width: 80vw;
+        display: block;
+    }
+    .header-image-row figure img {
+        margin: auto;
+        padding: 0;
+    }
+}
+

@@ -8,7 +8,7 @@
         <generator>Tris's Website Generator</generator>
         <webMaster>blog@tris.fyi (Tris Emmy Wilson)</webMaster>
 
-        {% for slug, meta in posts %}
+        {% for slug, meta in posts if meta.published|default(true) %}
         <item>
             <title>{{ meta.title }}</title>
             <link>{{ url_for("post", slug=slug, _external=True, _scheme="https") }}</link>

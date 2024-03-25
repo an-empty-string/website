@@ -2,18 +2,18 @@
 <html lang="en">
     <head>
         <title>{% block title %}{{ page_title }}{% endblock %}</title>
-        <link rel="stylesheet" href="{{ url_for("static", filename="index2.css") }}">
+        <link rel="stylesheet" href="{{ url_for("static", filename="index3.css") }}">
         {% block head %}{% endblock %}
         {% if has_sidenotes|default(false) %}
         <!-- sidenote fix -->
 <style type="text/css">
-@media(min-width: 75em) {
+@media(min-width: 65em) {
     #sidenotes-note {
         display: none;
     }
 }
 
-@media(max-width: 75em) {
+@media(max-width: 65em) {
     #sidenotes-note {
         display: block;
     }

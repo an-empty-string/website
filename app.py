@@ -6,7 +6,7 @@ import yaml
 from flask import Flask, abort, render_template
 
 app = Flask(__name__)
-if not os.environ["LOCAL"]:
+if not os.getenv("LOCAL"):
     app.config["SERVER_NAME"] = "tris.fyi"
 
 
