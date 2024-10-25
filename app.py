@@ -76,6 +76,9 @@ def post(slug):
     post = post.replace(" [!", '<span class="sidenote"><small>')
     post = post.replace("!]", "</small></span>")
 
+    if not os.getenv("LOCAL"):
+        post = post.replace("/static/blog/", "https://cdn.tris.fyi/static/blog/")
+
     has_sidenotes = len(post) != olen
 
     html_post = md.convert(post)

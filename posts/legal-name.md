@@ -2,7 +2,7 @@
 title: Changing your legal name in Madison&nbsp;County, Alabama
 summary: A detailed how-to guide on changing your legal name in Madison County, based on my experiences in September 2020 and kept up to date with feedback from the local trans community.
 posted_on: 2020-10-17
-updated_on: 2023-11-13
+updated_on: 2024-08-01
 ---
 
 This is how I changed my legal name in Madison County, AL. The process is definitely different elsewhere.
@@ -45,17 +45,17 @@ If you do this process in person, you should get a receipt on the same day; just
 
 ## Changing your name with ALEA/on your driver's license
 
-This used to be possible to do at [any county license commissioner's office](https://www.madisoncountyal.gov/departments/license-department/locations-hours), including the Madison County Service Center.
+*(This information was last updated in August 2024. Thank you to everyone who has contributed to this section by email and on Discord!)*
 
-As of August 2023 there are reports that name changes on drivers' licenses must be done at Church St. / an ALEA office, specifically for folks with REAL ID-compliant credentials (you have one of these if there's a star in the upper-right corner of your license). We are not exactly sure what is happening here, but consider calling the license office you're planning to visit ahead of time to confirm they can handle your name change.
+This used to be possible to do at [any county license commissioner's office](https://www.madisoncountyal.gov/departments/license-department/locations-hours), including the Madison County Service Center, but this is no longer the case. You **must** go to the [ALEA Madison County office](https://www.alea.gov/dps/driver-license/driver-license-offices/madison-county) at 7262 Governors West.
 
-I brought my current license, court order, and SSA receipt. You will need to pay $36.25 in **real cash (cards are not accepted as of October 2020)** for a duplicate license if you're not within the renewal window.
+Consider making an appointment [at dlschedule.alea.gov](https://alabamadl.alea.gov/_/#1) or calling ahead; wait times are usually very long (many hours) at this office. On the bright side, you can ask these folks to update your voter registration as well!
 
-As of November 2023, there are reports that you may also need a Social Security card (your old or new one should both work) to change your name, so bring that too if you have it. The receipt alone might not be sufficient, especially if you have a REAL/STAR ID, but a "snap" temporary card should work.
-
-I updated my title and vehicle registration at the same office. They needed the court order and my driver's licenses to do this. There is a fee for a corrected title but it was less than $30.
+You will need your old license, court order, and SSA receipt. You will need to pay $36.25 in **real cash (cards are not accepted as of October 2020)** for a duplicate license if you're not within the renewal window.
 
 My new permanent/full-validity license was mailed to me in about three weeks.
+
+You can update your title and vehicle registration at any county license commissioner's office (my understanding is that the ALEA office can't do this). They needed the court order and my driver's licenses to do this. There is a fee for a corrected title but it was less than $30.
 
 ## Changing the name on your voter registration
 

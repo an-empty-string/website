@@ -10,7 +10,7 @@
 
         {% for slug, meta in posts if meta.published|default(true) %}
         <item>
-            <title>{{ meta.title }}</title>
+            <title>{{ meta.title }}{% if meta.subtitle %}: {{ meta.subtitle }}{% endif %}</title>
             <link>{{ url_for("post", slug=slug, _external=True, _scheme="https") }}</link>
             {% if meta.summary %}<description>{{ meta.summary }}</description>{% endif %}
             <pubDate>{{ meta.posted_on.strftime("%a, %d %b %Y %T GMT") }}</pubDate>

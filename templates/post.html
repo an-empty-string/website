@@ -1,5 +1,9 @@
 {% extends "base.html" %}
+{% if meta.subtitle %}
+{% set page_title = (meta.title + ": " + meta.subtitle)|safe %}
+{% else %}
 {% set page_title = meta.title|safe %}
+{% endif %}
 {% if meta.summary %}{% set page_description = meta.summary %}{% endif %}
 
 {% block head %}
@@ -13,29 +17,31 @@
 
 {% block header %}
 <span><a href="/">tris.fyi</a> &gt; <a href="/blog/">blog</a> &gt;</span>
-<h1>{{ meta.title|safe }}</h1>
-<div>
+<div class="header">
+    <h1>{{ meta.title|safe }}</h1>
+    {% if meta.subtitle %}<h2>{{ meta.subtitle|safe }}</h2>{% endif %}
+    <p>
     {% if meta.author is defined %}
-    written by {{ meta.author|default("Tris Emmy Wilson")|safe }}<br />
+    written by {{ meta.author|default("Tris Emmy Wilson")|safe }} &middot;
     {% endif %}
-    <em>
-        {% if meta.updated_on %}
-        posted {{ meta.posted_on }}; last updated {{ meta.updated_on }}
-        {% else %}
-        posted {{ meta.posted_on }}
-        {% endif %}
-    </em>
+    {% if meta.updated_on %}
+    posted {{ meta.posted_on }}; last updated {{ meta.updated_on }}
+    {% else %}
+    posted {{ meta.posted_on }}
+    {% endif %}
+    </p>
 </div>
+
 {% if has_sidenotes|default(False) %}
 <p id="sidenotes-note">This article has sidenotes! You may need to scroll horizontally to view them.</p>
 {% endif %}
 
-<hr />
 {% if toc and meta.show_toc|default(true) %}
-<details>
+<details style="border: 1px solid; padding: 1em; margin: 1em 0;">
     <summary>Table of Contents</summary>
     {{ toc|safe }}
 </details>
+{% else %}
 <hr />
 {% endif %}
 {% endblock %}

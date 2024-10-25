@@ -184,3 +184,22 @@ figure figcaption {
     }
 }
 
+
+.header h1, .header p {
+    margin: 0;
+}
+
+.header h2 {
+    margin: 0;
+    font-size: 20pt;
+    font-weight: 400;
+    font-style: oblique;
+}
+
+.header {
+    margin: 1em 0;
+}
+
+ul.list-margins > li:not(:last-child) {
+    margin-bottom: 0.25em;
+}

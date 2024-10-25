@@ -1,5 +1,5 @@
 deploy: build
-	rsync -rv build/ tris.fyi:/var/www/
+	rsync -rv build/ trisfyi:/var/www/
 	touch deploy
 
 build: templates static posts

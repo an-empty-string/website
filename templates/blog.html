@@ -17,7 +17,7 @@
 <ul class="mediummargins nobullet">
     {% for slug, meta in year_posts if meta.published|default(true) %}
     <li>
-        <a href="{{ url_for("post", slug=slug) }}"><strong>{{ meta.posted_on.strftime("%B %d") }}:</strong> {{ meta.title|safe }}</a>
+        <a href="{{ url_for("post", slug=slug) }}"><strong>{{ meta.posted_on.strftime("%B %d") }}:</strong> {{ meta.title|safe }}{% if meta.subtitle %}: {{ meta.subtitle|safe }}{% endif %}</a>
     </li>
     {% endfor %}
 </ul>

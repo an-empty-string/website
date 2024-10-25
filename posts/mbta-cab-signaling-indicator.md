@@ -1,16 +1,22 @@
 ---
-title: How we turned MBTA Red Line equipment into a car speedometer
+title: "Massachusetts Bodged Transistor Authority"
+subtitle: "How we turned MBTA Red Line equipment into a car speedometer"
+
 author: '<a href="https://philo.gay">Philo Gray</a> &amp; Tris Emmy Wilson'
-posted_on: 2024-04-02
-published: false
+posted_on: 2024-03-27
+published: true
 og_props:
-    "title": How we turned MBTA Red Line equipment into a car speedometer
+    "title": "Massachusetts Bodged Transistor Authority: How we turned MBTA Red Line equipment into a car speedometer"
     "type": article
     "image": "https://tris.fyi/static/blog/indicator/header-01.jpg"
     "image:alt": "a dimly lit speedometer with yellow lamps above certain speeds"
     "url": "https://tris.fyi/blog/mbta-cab-signaling-indicator.html"
     "description": "in which two women are driven into madness by poorly documented cab signaling gear"
 ---
+
+<strong><em>If you haven't seen [the video for this project](https://youtu.be/KPlC6PoRjn8), consider watching it first! The rest of this post will make more sense after that.</em></strong>
+
+It came to me in a dream. I was carrying a heavy metal box on the train through a long tunnel that looked like either Porter Square Station or perhaps the DC Metro. I recognized the box as something I'd seen at WardMaps [![WardMaps](https://wardmapsgifts.com/) is a map and transit memorabilia store near Porter Square in Cambridge that is rather dangerous to the wallet of anyone like me. This indicator isn't even my largest or most unwieldy purchase from there; that dubious honor goes to the [MBTA map plate](https://tacobelllabs.net/@flamingspork/108585055833318207) I bought on my first visit.!] the previous day, despite its details shifting a bit every time I looked at it.
 
 <div class="header-image-row">
     <figure class="noborder">
@@ -21,7 +27,6 @@ og_props:
     </figure>
 </div>
 
-It came to me in a dream. I was carrying a heavy metal box on the train through a long tunnel that looked like either Porter Square Station or perhaps the DC Metro. I recognized the box as something I'd seen at WardMaps [![WardMaps](https://wardmapsgifts.com/) is a map and transit memorabilia store near Porter Square in Cambridge that is rather dangerous to the wallet of anyone like me. This indicator isn't even my largest or most unwieldy purchase from there; that dubious honor goes to the [MBTA map plate](https://tacobelllabs.net/@flamingspork/108585055833318207) I bought on my first visit.!] the previous day, despite its details shifting a bit every time I looked at it.
 
 <hr />
 
@@ -208,7 +213,7 @@ Much of this indicator was built from unmodified commercially-available parts, w
 <div class="row">
     <div>
         <figure>
-            <a href="/static/blog/indicator/12-circular-connector.jpg"><img src="/static/blog/indicator/12-circular-connector.jpg" alt="The 34-pin circular connector as seen from the outside of the deivce" /></a>
+            <a href="/static/blog/indicator/12-circular-connector.jpg"><img src="/static/blog/indicator/12-circular-connector.jpg" alt="The 34-pin circular connector as seen from the outside of the device" /></a>
             <figcaption>How the indicator connects to the rest of the train</figcaption>
         </figure>
     </div>
@@ -370,7 +375,7 @@ The first version of the program just turned on some lights to make sure that th
 
 Once we had that mostly working, Tris sketched out a protocol more suited to controlling it from a program, with one byte for a command (`+` for on, `-` for off, `/` to set the speedometer [!because it looks like a speedometer needle lol!], `!` for a lamp test, `?` to query the state of an input pin, and `=` to read the state of an output pin), one byte for a value (which pin to read or write or what to set the speedometer to), and then a newline character. I implemented it on the Arduino and in [a Python script](https://github.com/FlamingSpork/indicator/blob/master/driver/adu.py) that replicated the previous behavior of prompting for a pin number, but now in a way that can easily be controlled programmatically.
 
-## Driving other heavy machinery with a speedometer
+## Connecting the indicator to a car
 
 Our friend Ava casually suggested that we use the indicator as a speedometer in my car, and that nerdsniped [!See [XKCD 356](https://xkcd.com/356/).!] us into trying to make it work. “It can’t be *too* hard, right?” was our refrain through that weekend of programming and putting it all together.
 
@@ -418,4 +423,4 @@ I pulled out of the garage, a bit nervous that the indicator could stop working 
 
 <hr />
 
-<em>Thanks for reading. If you have questions or comments, or want to share more information about automatic train information at the T, you can reach Tris via email at <a href="mailto:tris@tris.fyi">tris@tris.fyi</a>.</em>
+<em>Thanks for reading. If you have questions or comments, or want to share more information about automatic train operation at the T, you can reach Tris via email at <a href="mailto:tris@tris.fyi">tris@tris.fyi</a>.</em>
