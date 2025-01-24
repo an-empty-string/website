@@ -7,7 +7,7 @@ updated_on: 2024-08-01
 
 This is how I changed my legal name in Madison County, AL. The process is definitely different elsewhere.
 
-I originally did this in September 2020 but I try to keep this info up to date based on feedback. Email me at tris@tris.fyi or ping me on Discord ("trisdoesnothaveausername") to give such feedback; I really appreciate it!
+I originally did this in September 2020 but I try to keep this info up to date based on feedback. Email me at tris@tris.fyi or ping me on Discord ("tris.fyi") to give such feedback; I really appreciate it!
 
 ## Background
 

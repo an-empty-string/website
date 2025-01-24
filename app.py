@@ -21,6 +21,11 @@ def bookmarks():
     return render_template("bookmarks.html")
 
 
+@app.route("/speedrun/")
+def speedrun():
+    return render_template("speedrun.html")
+
+
 def all_posts():
     posts = []
 
