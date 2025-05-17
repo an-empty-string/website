@@ -32,9 +32,19 @@ body {
 header, main, footer {
     max-width: 45em;
 }
+
 body.lorge {
     max-width: 100%;
 }
+
+body.wide header, body.wide main, body.wide footer {
+    max-width: 80em;
+}
+
+body.wide :not(details.wide) > p, body.wide :not(details.wide) > li, body.wide header details {
+    max-width: 45em;
+}
+
 div.flex-row {
     display: flex;
     flex-direction: row;

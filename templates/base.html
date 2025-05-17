@@ -30,7 +30,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="{% block description %}{% endblock %}">
     </head>
-    <body>
+    <body{% if wide|default(false) %} class="wide"{% endif %}>
         <header>
             {% block header %}
             <h1>{{ page_title }}</h1>

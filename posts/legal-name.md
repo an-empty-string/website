@@ -2,12 +2,12 @@
 title: Changing your legal name in Madison&nbsp;County, Alabama
 summary: A detailed how-to guide on changing your legal name in Madison County, based on my experiences in September 2020 and kept up to date with feedback from the local trans community.
 posted_on: 2020-10-17
-updated_on: 2024-08-01
+updated_on: 2025-05-16
 ---
 
 This is how I changed my legal name in Madison County, AL. The process is definitely different elsewhere.
 
-I originally did this in September 2020 but I try to keep this info up to date based on feedback. Email me at tris@tris.fyi or ping me on Discord ("tris.fyi") to give such feedback; I really appreciate it!
+I originally did this in September 2020 but I try to keep this info up to date based on feedback. Email me at tris@tris.fyi or ping me on Discord ("tris.fyi") to give such feedback. Thank you to everyone who has given me feedback so far; I really appreciate it.
 
 ## Background
 
@@ -33,25 +33,29 @@ As of 2022, a few folks have mentioned that this process seems to be taking long
 
 ## Changing your name with SSA
 
+*(This information was last updated in May 2025. Thank you to everyone who has contributed to this section by email and on Discord!)*
+
 You need to change your name with the Social Security Administration before most other agencies. I filled out a [SS-5 Application for a Social Security Card](https://www.ssa.gov/forms/ss-5.pdf) and mailed it to [my local Social Security field office](https://secure.ssa.gov/ICON/main.jsp) along with the name change order and my original driver's license.
 
 You can and should do this process in person. If you make your application by mail, you must mail an original identity document to SSA. I had to order a duplicate drivers' license ($31.25) so I had something to drive with in the meantime. **SSA does not need to keep an original drivers' license if you visit them in person, they just need to see it once.**
 
-To speed up the drivers' license process, try to get a "snap" temporary card on the day you visit SSA.
+You should **make an appointment** at your local office to get this done; some offices are busy and will not be able to accommodate you otherwise. You can call 1-800-772-1213 (the national Social Security hotline) or [start changing your name online](https://secure.ssa.gov/ossnap/public/landingOSsnap), which should guide you through the appointment process.
 
-About two weeks later I received my license and court order back in the mail. A few days after that I received a receipt saying that I had applied for a Social Security card (this is the document you need to prove your name has been changed with SSA). A day after that I received another receipt (not sure why). About two weeks after that I received a new Social Security card in the mail.
+To speed up the drivers' license process, try to get a "SSNAP" temporary card on the day you visit SSA.
+
+If you complete the application by mail, you can expect to receive your supporting documents back after a few weeks. A few days after that you could expect to receive a receipt saying that you had applied for a Social Security card (this is the document you need to prove your name has been changed with SSA). About two weeks after that I received a new Social Security card in the mail.
 
 If you do this process in person, you should get a receipt on the same day; just wait 24 hours after this to continue the process with ALEA so all of the computers involved have consistent information.
 
 ## Changing your name with ALEA/on your driver's license
 
-*(This information was last updated in August 2024. Thank you to everyone who has contributed to this section by email and on Discord!)*
+*(This information was last updated in May 2025. Thank you to everyone who has contributed to this section by email and on Discord!)*
 
 This used to be possible to do at [any county license commissioner's office](https://www.madisoncountyal.gov/departments/license-department/locations-hours), including the Madison County Service Center, but this is no longer the case. You **must** go to the [ALEA Madison County office](https://www.alea.gov/dps/driver-license/driver-license-offices/madison-county) at 7262 Governors West.
 
 Consider making an appointment [at dlschedule.alea.gov](https://alabamadl.alea.gov/_/#1) or calling ahead; wait times are usually very long (many hours) at this office. On the bright side, you can ask these folks to update your voter registration as well!
 
-You will need your old license, court order, and SSA receipt. You will need to pay $36.25 in **real cash (cards are not accepted as of October 2020)** for a duplicate license if you're not within the renewal window.
+You will need your old license, court order, and SSA receipt. You will need to pay $36.25 in **cash (cards are accepted as of May 2025, but with a modest surcharge)** for a duplicate license if you're not within the renewal window.
 
 My new permanent/full-validity license was mailed to me in about three weeks.
 

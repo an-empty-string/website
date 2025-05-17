@@ -73,6 +73,9 @@ def post(slug):
             "fenced_code",
             "codehilite",
             "toc",
+            "pymdownx.blocks.details",
+            "pymdownx.blocks.html",
+            "pymdownx.emoji",
         ]
     )
 
