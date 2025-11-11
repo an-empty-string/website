@@ -1,78 +1,307 @@
 {% extends "base.html" %}
 {% set page_title = "Tris Emmy Wilson" %}
+{% block head %}
+<link rel="preload" href="{{ url_for('static', filename='sick-turtle.png') }}" as="image" />
+<link rel="preload" href="{{ url_for('static', filename='cat-turtle.png') }}" as="image" />
+<link rel="preload" href="{{ url_for('static', filename='cool-lesbian-turtle.png') }}" as="image" />
+<link rel="preload" href="{{ url_for('static', filename='flip-turtle.png') }}" as="image" />
+{% endblock %}
 
 {% block header %}
-<div style="vertical-align: middle; display: flex;">
+<div style="vertical-align: middle; display: flex;" class="transformable">
     <div style="display: block; font-size: 2em; font-weight: 900; margin-right: 0.3em;">
-        cool tris facts
+        <span id="cool">cool</span> tris facts
     </div>
     <div style="height: 3em; display: block">
-        <img style="height: 100%;" src="{{ url_for('static', filename='turtlewitchbroom.png') }}" />
+        <!-- <img style="height: 100%;" src="{{ url_for('static', filename='turtlewitchbroom.png') }}" /> -->
+        <img draggable="false" id="turtle" style="cursor: grabbing; height: 100%; margin-top: -0.2em;" src="{{ url_for('static', filename='turtlesbian.png') }}" />
     </div>
 </div>
 {% endblock %}
 
 {% block content %}
-<div>
+
+<section class="transformable">
     <ul class="list-margins">
         <li>
             <strong>tris emmy wilson</strong> <em>(she/her)</em> is trying her best, going places, doing things
             <ul>
                 <li>mostly in the greater Boston area, but Huntsville (AL) is still home</li>
-                <li>admiring infrastructure</li>
-                <li>riding trains</li>
+                <li>trying to keep love and kindness above all else</li>
+                <li>admiring infrastructure, riding trains, chanting psalms</li>
                 <li>misses being able to see the stars</li>
             </ul>
         </li>
-        <li>sometimes takes <a href="https://glass.photo/tris">pictures of said places and things</a></li>
-        <li>maintains <a href="/bookmarks.html">a public bookmarks list</a></li>
-        <li>occasionally writes in her <a href="/blog">blog/lab notebook/random thoughts container</a></li>
-        <li>can be reached via email at <a href="mailto:tris@tris.fyi">tris@tris.fyi</a>, and on the fediverse at <a rel="me" href="https://tacobelllabs.net/@tris">Taco Bell Labs</a> (I love meeting interesting new folks, feel free to say hi!)</li>
-        <li>is a <a target="_blank" href="https://www.openstreetmap.org/user/Tris%20Wilson">casual OpenStreetMap editor</a>, geospatial data hobbyist (competent with <a _target="blank" href="https://www.qgis.org/">QGIS</a>)</li>
-        <li>is a proud member of IFPTE Local 70, the <a target="_blank" href="https://npeu.org">Nonprofit Professional Employees Union</a>!</li>
-        <li>
-            does volunteer organizing and related projects with <a target="_blank" href="https://altrac.works">ALTRAC</a> (the Alabama Trans Rights Action Coalition) and various allied organizations
-        </li>
-        <li>is <a href="/speedrun/">the fastest MBTA rider alive</a> (rail rapid transit only)</li>
-        <li>is still unapologetically queer and trans</li>
+        <li>can be reached via email at <a href="mailto:tris@tris.fyi">tris@tris.fyi</a>, and on the fediverse at <a rel="me" href="https://tacobelllabs.net/@tris">Taco Bell Labs</a> (feel free to say hello! it's nice to hear from you)</li>
+        <li>proud member of the <a target="_blank" href="https://npeu.org">Nonprofit Professional Employees Union</a>, IFPTE Local 70</li>
+        <li>many other things too numerous to list here...</li>
     </ul>
-</div>
 
-<section>
-    <h2>other stuff I made</h2>
-    <ul class="bigmargins">
-        <li><a href="/blog/legal-name.html">changing your legal name in Madison County, Alabama</a></li>
-        <li><a href="/blog/every-commuter-railroad.html">riding every commuter railroad on the Northeast Corridor in the same day</a></li>
+    <h2>from the blog</h2>
+    <ul class="list-margins nobullet">
+        {% for slug, post, _ in posts if post.published|default(true) %}
+        {% if loop.index <= 3 %}
+        <li><strong>{{ post.posted_on.strftime("%B %d") }}:</strong> <a href="{{ url_for('post', slug=slug) }}">{{ post.title }}</a></li>
+        {% endif %}
+        {% endfor %}
+        <li><a href="/blog/">check out all the posts here!</a></li>
+    </ul>
+
+    <h2>many people coming to this website are looking for...</h2>
+    <ul class="list-margins">
+        <li><a href="/bookmarks.html">bookmarks (recipes, blog posts I like, various documents, etc)</a></li>
+        <li><a href="https://glass.photo/tris">some photos I've taken</a></li>
+        <li><a href="/blog/legal-name.html">my guide on changing your legal name</a> (in Madison County, Alabama)</li>
+        <li><a href="/speedrun/">MBTA speedrun info</a>, records and norms</li>
         <li><a href="/blog/mbta-cab-signaling-indicator.html">turning MBTA Red Line cab signaling equipment into a car speedometer</a> (with <a href="https://philo.gay">Philo</a>)</li>
-        <li><a href="/wmata">almost every WMATA 7000-series train announcement</a></li>
+        <li><a href="/wmata/">WMATA audio files</a>, including almost every 7000-series announcement, and more</li>
+        <li><a href="/print-letter-delivery/">Action Network print letter delivery tool</a></li>
+    </ul>
+
+    <h2>few people coming to this website are looking for...</h2>
+    <ul class="inline-list">
+        <li><a href="/dish/">22:22 bake a dish</a></li>
+        <li><a href="/year/">01-01 make a year</a></li>
         <li><a href="/towns.html">even worse Massachusetts town names</a></li>
         <li><a href="/yeah.html">a little css toy</a></li>
-        <li><a href="/dish">22:22 bake a dish</a></li>
-        <li><a href="/speedrun/">MBTA speedrun records</a></li>
-        <li><a href="/grayscale.xpi">a Firefox extension that turns websites grayscale</a></li>
-        <!--
-        <li><a href="https://districts.socialism.gay">districts.socialism.gay</a>, a tool for matching geographic coordinates to united states legislative districts (state level and congressional)</li>
-        <li><a href="https://doesthegreenline.work">does the green line work?</a> (spoiler: probably not)</li>
-        -->
+        <li><a href="/bigiftrue.html">big if true generator</a></li>
+        <li><a href="/cornpass/">cornpass (corn compass (Android only))</a></li>
+        <li><a href="https://cursor.town">cursor.town</a> (needs friends to play)</li>
     </ul>
+
+    <hr>
+    <div>
+        <p><strong>cookie policy:</strong> the author of this website likes them, mostly oatmeal raisin but others are ok too. please give her some</p>
+    </div>
 </section>
-<hr>
-<div>
-    <p><strong>cookie policy:</strong> the author of this website likes them, mostly oatmeal raisin but others are ok too. please give her some</p>
-</div>
 {% endblock %}
 
 {% block footer %}
-<hr>
-<a href="https://tris.fyi"><img src="{{ url_for("static", filename="badges/tris.png") }}" alt="tris"></a>
-<a href="https://altrac.works"><img src="{{ url_for("static", filename="badges/altrac.png") }}" alt="Alabama Trans Rights Action Coalition"></a>
-<a href="https://philo.gay"><img src="{{ url_for("static", filename="badges/philo.png") }}" alt="philo"></a>
-<a href="https://pixilic.com/?ref=clicky"><img src="{{ url_for("static", filename="badges/hunter.png") }}" alt="hunter"></a>
-<a href="https://miakizz.quest"><img src="{{ url_for("static", filename="badges/miakizz.png") }}" alt="nkizz"></a>
-<a href="https://breq.dev"><img src="{{ url_for("static", filename="badges/breq.png") }}" alt="brooke"></a>
-<a href="https://adryd.com"><img src="{{ url_for("static", filename="badges/adryd.png") }}" alt="ari"></a>
-<a href="https://izzy.horse"><img src="{{ url_for("static", filename="badges/izzyhorse.png") }}" alt="izzy dot horse"></a>
-<a href="https://avasilver.dev"><img src="{{ url_for("static", filename="badges/ava.png") }}" alt="ava"></a>
+<section class="transformable">
+    <hr>
+    <a href="https://tris.fyi"><img src="{{ url_for("static", filename="badges/tris.png") }}" alt="tris"></a>
+    <a href="https://altrac.works"><img src="{{ url_for("static", filename="badges/altrac.png") }}" alt="Alabama Trans Rights Action Coalition"></a>
+    <a href="https://philo.gay"><img src="{{ url_for("static", filename="badges/philo.png") }}" alt="philo"></a>
+    <a href="https://pixilic.com/?ref=clicky"><img src="{{ url_for("static", filename="badges/hunter.png") }}" alt="hunter"></a>
+    <a href="https://miakizz.quest"><img src="{{ url_for("static", filename="badges/miakizz.png") }}" alt="nkizz"></a>
+    <a href="https://breq.dev/" data-turtlesbian="1"><img src="{{ url_for("static", filename="badges/breq.png") }}" alt="brooke"></a>
+    <a href="https://adryd.com"><img src="{{ url_for("static", filename="badges/adryd.png") }}" alt="ari"></a>
+    <a href="https://izzy.horse"><img src="{{ url_for("static", filename="badges/izzyhorse.png") }}" alt="izzy dot horse"></a>
+    <a href="https://avasilver.dev"><img src="{{ url_for("static", filename="badges/ava.png") }}" alt="ava"></a>
+    <a href="https://fedi.fraw.st/notes/achjrc4a7qe500dd"><img src="{{ url_for("static", filename="badges/hellyeahturtle.png") }}" alt="hell yeah turtle"></a>
+</section>
+
+<details>
+    <summary><small>secret website control panel</small></summary>
+    <button id="turtle-restore">restore turtle!</button>
+    <button id="cat-toggle">hide the cat</button>
+</details>
 
 <script src="/static/oneko-webring.js"></script>
+
+<script>
+    const catToggle = document.querySelector("#cat-toggle");
+    var catState = false;
+    var catNotified = false;
+
+    const turtle = document.querySelector("#turtle");
+    const restoreButton = document.querySelector("#turtle-restore");
+    var hasTurtle = false;
+    var isTouch = false;
+    var turtX = 0;
+    var turtY = 0;
+    var lastTurtX = 0;
+    var lastTurtY = 0;
+    var turtSize = 3;
+    var turtTotal = 0;
+    var turtleIsCat = false;
+    var turtleFlipped = 0;
+    var lastTurtleClick = 0;
+    var turtActivated = false;
+
+    function getCat() {
+        return document.querySelector("#oneko");
+    }
+
+    function updateCatToggle() {
+        if(getCat()) catToggle.innerText = "hide the cat...";
+        else catToggle.innerText = "show the cat :)";
+    }
+
+    catToggle.addEventListener("click", function() {
+        if(getCat()) getCat().remove();
+        else window.oneko();
+
+        updateCatToggle();
+    });
+    updateCatToggle();
+
+    function applyTransform(f) {
+        document.querySelectorAll(".transformable").forEach((x) => f(x));
+    }
+
+    function mouseUp() {
+        hasTurtle = false;
+    }
+
+    function moveTurtle(cx, cy) {
+        if(turtTotal > 10000) return;
+
+        turtActivated = true;
+
+        turtle.style.position = "fixed";
+        turtle.style.left = (cx - turtX) + "px";
+        turtle.style.top = (cy - turtY) + "px";
+        turtle.style.height = turtSize + "em";
+        turtle.style.userSelect = "none";
+
+        if(lastTurtX != 0 && lastTurtY != 0) {
+            turtTotal += Math.abs(lastTurtX - cx) + Math.abs(lastTurtY - cy);
+            if(turtTotal > 10000) {
+                console.log("turtle is sick")
+                updateTurtle();
+                window.setTimeout(unsickenTurtle, 5000);
+            }
+        }
+
+        lastTurtX = cx;
+        lastTurtY = cy;
+        updateFriends();
+    }
+
+    function intersects(obj) {
+        if(!obj) return false;
+        const tRect = turtle.getBoundingClientRect();
+        const cRect = obj.getBoundingClientRect();
+        return (cRect.bottom > tRect.top && cRect.right > tRect.left && cRect.top < tRect.bottom && cRect.left < tRect.right);
+    }
+
+    function updateTurtle() {
+        if(turtleFlipped != 0) return;
+        turtle.style.height = turtSize + "em";
+        if(turtTotal > 10000) {
+            turtle.src = "/static/sick-turtle.png";
+        } else if(intersects(document.querySelector("#cool"))) {
+            turtle.src = "/static/cool-lesbian-turtle.png";
+        } else if(turtleIsCat || intersects(document.querySelector("#oneko"))) {
+            turtle.src = "/static/cat-turtle.png";
+            turtleIsCat = true;
+        } else {
+            turtle.src = "/static/turtlesbian.png";
+        }
+    }
+
+    function flipTurtle() {
+        if(turtleFlipped >= 360) {
+            turtleFlipped = 0;
+            turtle.style.transform = "";
+            updateTurtle();
+            return;
+        }
+        turtle.src = "/static/flip-turtle.png";
+        turtle.style.transform = "rotate(" + turtleFlipped + "deg)";
+
+        turtleFlipped += Math.min(Math.max(3, turtleFlipped / 10), 7);
+        window.setTimeout(flipTurtle, 1);
+    }
+
+    function unsickenTurtle() {
+        turtle.src = "/static/turtlesbian.png";
+        turtTotal = 0;
+    }
+
+    function restoreTurtle() {
+        turtTotal = 0;
+        turtleIsCat = false;
+        turtleFlipped = 0;
+        turtSize = 3;
+        turtActivated = false;
+        turtle.style.position = "relative";
+        turtle.style.left = "";
+        turtle.style.top = "";
+        updateTurtle();
+    }
+
+    function embiggenTurt(event) {
+        turtSize += (event.deltaY * -0.003);
+        updateTurtle();
+        updateFriends();
+        event.preventDefault();
+        return false;
+    }
+
+    window.setInterval(updateTurtle, 100);
+
+    function mouseMove(event) {
+        if(hasTurtle && ((event.buttons & 1) || isTouch)) {
+            moveTurtle(event.clientX, event.clientY);
+            document.body.style.userSelect = "none";
+            return false;
+        } else {
+            hasTurtle = false;
+            document.body.style.userSelect = "initial";
+        }
+    }
+
+    function touchMove(event) {
+        if(!hasTurtle) return;
+        for(const touch of event.changedTouches) {
+            moveTurtle(touch.screenX, touch.screenY);
+            event.preventDefault();
+            return false;
+        }
+    }
+
+    function checkFlipTurtle() { 
+        if(+(new Date) - lastTurtleClick < 500 && turtleFlipped == 0) {
+            flipTurtle();
+        }
+
+        lastTurtleClick = +(new Date);
+    }
+
+    function mouseDown(event) {
+        checkFlipTurtle();
+        hasTurtle = true;
+        turtX = event.offsetX;
+        turtY = event.offsetY;
+        event.preventDefault();
+        return false;
+    }
+
+    function touchDown(event) {
+        checkFlipTurtle();
+        isTouch = true;
+        hasTurtle = true;
+
+        for(const touch of event.touches) {
+            const rect = turtle.getBoundingClientRect();
+            console.log(rect);
+            console.log(touch);
+            turtX = touch.screenX - rect.x;
+            turtY = touch.screenY - rect.y;
+            console.log("set turtX " + turtX + " turtY " + turtY);
+            event.preventDefault();
+            return false;
+        }
+    }
+
+    function updateFriends() {
+        document.querySelectorAll("[data-turtlesbian]").forEach((el) => {
+            var href;
+            if(href = el.getAttribute("href-orig")); else el.setAttribute("href-orig", href = el.href);
+            if(turtActivated) el.href = href + "?turt[x]=" + turtle.style.left + "&turt[y]=" + turtle.style.top + "&turt[big]=" + turtSize;
+        });
+    }
+
+    turtle.addEventListener("mousedown", mouseDown);
+    turtle.addEventListener("touchstart", touchDown);
+    document.body.addEventListener("mousemove", mouseMove);
+    document.body.addEventListener("touchmove", touchMove);
+    document.body.addEventListener("mouseup", mouseUp);
+    document.body.addEventListener("touchend", mouseUp);
+    restoreButton.addEventListener("click", restoreTurtle);
+    turtle.addEventListener("wheel", embiggenTurt);
+
+</script>
 {% endblock %}

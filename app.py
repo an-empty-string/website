@@ -1,3 +1,4 @@
+import collections
 import itertools
 import os
 
@@ -13,7 +14,7 @@ if not os.getenv("LOCAL"):
 @app.route("/")
 @app.route("/index.html")
 def index():
-    return render_template("index.html")
+    return render_template("index.html", posts=all_posts())
 
 
 @app.route("/bookmarks.html")
@@ -26,47 +27,66 @@ def speedrun():
     return render_template("speedrun.html")
 
 
-def all_posts():
+Post = collections.namedtuple("Post", ["slug", "meta", "content"])
+
+
+def all_posts(include_private=False):
     posts = []
 
-    for post in os.listdir("posts"):
-        if not post.endswith(".md"):
-            continue
+    for post_dir, _, post_filenames in os.walk("posts", followlinks=True):
+        for post in post_filenames:
+            if not post.endswith(".md"):
+                continue
 
-        slug = post.removesuffix(".md")
-        with open(f"posts/{post}") as f:
-            content = f.read()
-            _, raw_meta, _ = content.split("---\n")
-            meta = yaml.safe_load(raw_meta)
-            posts.append((slug, meta))
+            slug = post.removesuffix(".md")
+            with open(os.path.join(post_dir, post)) as f:
+                content = f.read()
+                _, raw_meta, post_content = content.split("---\n")
+                meta = yaml.safe_load(raw_meta)
+
+                if "slug" in meta:
+                    slug = meta["slug"]
+
+                if not include_private and "private_uuid" in meta:
+                    continue
+
+                posts.append(Post(slug, meta, post_content))
 
     posts.sort(key=lambda pm: pm[1]["posted_on"], reverse=True)
     return posts
+
+
+def get_post_by_slug(slug):
+    posts = all_posts(include_private=True)
+    for post in posts:
+        if post.slug == slug:
+            return post
 
 
 @app.route("/blog/")
 @app.route("/blog/index.html")
 def blog():
     posts = all_posts()
-    posts = itertools.groupby(posts, key=lambda pm: pm[1]["posted_on"].year)
+    posts = itertools.groupby(posts, key=lambda pm: pm.meta["posted_on"].year)
     return render_template("blog.html", posts=posts)
 
 
 @app.route("/blog/rss.xml")
 def rss():
-    return render_template("rss.xml", posts=all_posts())
+    resp = render_template("rss.xml", posts=all_posts())
+
+    # for ease of viewing - not used when rendered, really
+    return resp, {"Content-Type": "text/plain"}
 
 
 @app.route("/blog/<slug>.html")
-def post(slug):
-    try:
-        with open(f"posts/{slug}.md") as f:
-            content = f.read()
-            _, raw_meta, post = content.split("---\n")
-            meta = yaml.safe_load(raw_meta)
-
-    except FileNotFoundError:
+@app.route("/blog/<slug>/<private_uuid>.html")
+def post(slug, private_uuid=None):
+    post_data = get_post_by_slug(slug)
+    if post_data is None:
         abort(404)
+
+    _, meta, post = post_data
 
     md = markdown.Markdown(
         extensions=[
