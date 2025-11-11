@@ -220,3 +220,29 @@ figure figcaption {
 ul.list-margins > li:not(:last-child) {
     margin-bottom: 0.25em;
 }
+
+.inline-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+}
+
+.inline-list li {
+    display: inline-block;
+    padding: 0;
+    padding-right: 0.25em;
+    font-size: 14pt;
+}
+
+.inline-list li:not(:last-child)::after {
+    content: '∙';
+    font-weight: bolder;
+    padding-left: 0.25em;
+    font-size: 18pt;
+}
+
+#cat-toggle, #turtle-restore {
+    margin-top: 0.2em;
+    font-size: 14pt;
+}

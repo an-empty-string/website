@@ -1,11 +1,9 @@
 // oneko.js: https://github.com/adryd325/oneko.js (webring variant)
 
-(function oneko() {
+window.oneko = (function oneko() {
   const isReducedMotion =
     window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
     window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
-
-  if (isReducedMotion) return;
 
   const nekoEl = document.createElement("div");
 
@@ -300,5 +298,7 @@
     nekoEl.style.top = `${nekoPosY - 16}px`;
   }
 
-  init();
+  if(!isReducedMotion) init();
+
+  return init;
 })();
