@@ -41,7 +41,7 @@ def all_posts(include_private=False):
             slug = post.removesuffix(".md")
             with open(os.path.join(post_dir, post)) as f:
                 content = f.read()
-                _, raw_meta, post_content = content.split("---\n")
+                _, raw_meta, post_content = content.split("---\n", maxsplit=2)
                 meta = yaml.safe_load(raw_meta)
 
                 if "slug" in meta:
