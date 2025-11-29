@@ -6,6 +6,8 @@ import markdown
 import yaml
 from flask import Flask, abort, render_template
 
+import items
+
 app = Flask(__name__)
 if not os.getenv("LOCAL"):
     app.config["SERVER_NAME"] = "tris.fyi"
@@ -79,15 +81,7 @@ def rss():
     return resp, {"Content-Type": "text/plain"}
 
 
-@app.route("/blog/<slug>.html")
-@app.route("/blog/<slug>/<private_uuid>.html")
-def post(slug, private_uuid=None):
-    post_data = get_post_by_slug(slug)
-    if post_data is None:
-        abort(404)
-
-    _, meta, post = post_data
-
+def render_markdown(text):
     md = markdown.Markdown(
         extensions=[
             "fenced_code",
@@ -99,17 +93,33 @@ def post(slug, private_uuid=None):
         ]
     )
 
+    text = text.replace(" --- ", " &mdash; ")
+    text = text.replace("...", "&hellip;")
+
+    return md, md.convert(text)
+
+
+@app.route("/blog/<slug>.html")
+@app.route("/blog/<slug>/<private_uuid>.html")
+def post(slug, private_uuid=None):
+    post_data = get_post_by_slug(slug)
+    if post_data is None:
+        abort(404)
+
+    _, meta, post = post_data
+
     olen = len(post)
 
     post = post.replace(" [!", '<span class="sidenote"><small>')
     post = post.replace("!]", "</small></span>")
 
+    has_sidenotes = len(post) != olen
+
     if not os.getenv("LOCAL"):
         post = post.replace("/static/blog/", "https://cdn.tris.fyi/static/blog/")
 
-    has_sidenotes = len(post) != olen
+    md, html_post = render_markdown(post)
 
-    html_post = md.convert(post)
     return render_template(
         "post.html",
         meta=meta,
@@ -117,6 +127,36 @@ def post(slug, private_uuid=None):
         toc=getattr(md, "toc", None),
         has_sidenotes=has_sidenotes,
     )
+
+
+# items framework {{{
+def render_markdown_with_link_shorthand(text, item):
+    assert "title" in item
+    assert "url" in item
+
+    item_title = item["title"]
+    if "author" in item:
+        item_title = f"{item['author']} --- {item['title']}"
+
+    text = text.replace("<>", "[]()")
+    text = text.replace("[]", f"[{item_title}]")
+    text = text.replace("()", f"({item['url']})")
+
+    _, html = render_markdown(text)
+
+    html = html.removeprefix("<p>").removesuffix("</p>")
+    return html
+
+
+@app.context_processor
+def inject_item_helpers():
+    return {
+        "find_items": items.find_items,
+        "render_markdown_with_link_shorthand": render_markdown_with_link_shorthand,
+    }
+
+
+# }}}
 
 
 if __name__ == "__main__":

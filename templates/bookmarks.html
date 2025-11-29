@@ -1,171 +1,71 @@
 {% extends "base.html" %}
 {% set page_title = "bookmarks" %}
 {% set page_description = "tris's public bookmarks list, with links to stuff she finds useful and/or interesting" %}
+
+{% macro render_bookmark(item) %}
+<li>
+    {{ render_markdown_with_link_shorthand(item.text, item)|safe }}
+    <br />
+    <span class="item-meta">
+        {{ item.created }}
+        {% if item.tags[1:] %}
+        {% for tag in item.tags[1:] %}
+        <span class="tag">#{{ tag }}</span>
+        {% endfor %}
+        {% endif %}
+    </span>
+</li>
+{% endmacro %}
+
+{% macro render_bookmarks(tag) %}
+<ul class="bookmarks">
+    {% for item in find_items("bookmark", tags=[tag]) %}
+    {{ render_bookmark(item) }}
+    {% endfor %}
+</ul>
+{% endmacro %}
+
 {% block header %}
 <span><a href="/">tris.fyi</a> &gt; bookmarks</span>
 <h1>bookmarks</h1>
 {% endblock %}
 {% block content %}
 <nav>
-    <a href="#publications">publications</a> &middot;
-    <a href="#recipes">recipes</a> &middot;
+    <a href="#pubs">publications</a> &middot;
+    <a href="#recipe">recipes</a> &middot;
     <a href="#music">music</a> &middot;
-    <a href="#sidequests">quests</a> &middot;
-    <a href="#data">data</a> &middot;
-    <a href="#osm">osm</a> &middot;
-    <a href="#places">places</a> &middot;
-    <a href="#gender">gender</a> &middot;
-    <a href="#random">random</a>
+    <a href="#data">data/maps</a> &middot;
+    <a href="#misc">random</a>
 </nav>
 <div class="flex-row">
     <input type="text" id="search" placeholder="search bookmarks... (requires javascript)" autofocus />
 </div>
-<section id="publications">
-    <h2>cool blogposts/papers/whatever</h2>
-    <ul>
-        <li><a href="https://calpaterson.com/bank-python.html">cal peterson &mdash; an oral history of Bank Python</a></li>
-        <li><a href="https://www.bitsaboutmoney.com/archive/charitable-donations-infrastructure/">bits about money &mdash; charitable donations and the infrastructure supporting them</a> &mdash; a fascinating article about donor advised funds (time travel mechanism for rich people to do more tax deductions)</li>
-        <li><a href="https://www.hillelwayne.com/post/picat/">an essay about planner programming</a> (which is kind of like logic programming)</a></li>
-        <li>allowing bicyclists to follow leading pedestrian signals <a href="https://www.nyc.gov/html/dot/downloads/pdf/bike-lpi-study-memo.pdf">is safe, according to nyc dot</a></li>
-        <li><a href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2809058">access to gender-affirming healthcare (statistically significantly) reduces suicidality</a> (<a href="nolan_2023_oi_230926_1692977943.94493.pdf">archived on tris.fyi, updated 2023-09-08</a>)</li>
-        <li><a href="https://subpixel.space/entries/open-transclude">open transclude for networked writing</a> &mdash; a neat way of using iframes to cite other content</li>
-        <li><a href="https://grahamc.com/blog/erase-your-darlings/">erase your darlings</a> &mdash; applying immutable infra principles to stateful systems</li>
-        <li><a href="https://web.archive.org/web/20170825204308/http://engineering.gusto.com/how-ach-works-a-developer-perspective-part-1/">how ACH works: a developer perspective (Gusto engineering blog)</a></li>
-        <li><a href="https://hivekit.io/blog/how-weve-saved-5000-percent-in-cloud-costs-by-writing-our-own-database/">how we saved 98% in cloud costs by writing our own database</a>, an interesting lesson (?) in general vs. special-purpose databases</li>
-        <li><a href="https://askjan.org/">the Job Accommodation Network</a>, an incredibly detailed resource for applying the Americans with Disabilities Act at your workplace</li>
-        <li><a href="https://virus.sucks/">virus.sucks</a>, unofficial knowledge base and toolset for covid-cautious folks using the Pluslife NAT test device, which while not approved by the FDA in the US, has comparable sensitivity to PCR tests; <a href="https://www.nature.com/articles/s41598-024-64406-9">similar to Abbott ID NOW and friends</a></li>
-        <li><a href="https://stevelosh.com/blog/2013/04/git-koans/">Git Koans</a></li>
-        <li><a href="https://drmollytov.smol.pub/2025-05-12">shopping is an exasperating nightmare</a></li>
-        <li><a href="https://www.robinsloan.com/notes/home-cooked-app/">home cooked apps</a> &mdash; tools you build for yourself, friends, family, that don't change much and already know who is using them and how</li>
-        <li><a href="https://jvns.ca/til/fzf-preview-git-commits/">you can use `fzf` to review git commits</a> (and much more)</li>
-        <li><a href="https://aresluna.org/the-hardest-working-font-in-manhattan/">The hardest working font in Manhattan</a>, an incredible exploration of letterforms you've definitely seen before</li>
-    </ul>
+
+<section id="pubs">
+    <h2>cool blogposts/papers/articles/publications</h2>
+    {{ render_bookmarks("pubs") }}
 </section>
-<section id="recipes">
+
+<section id="recipe">
     <h2>recipes</h2>
-    <ul>
-        <li><a href="https://www.recipetineats.com/chicken-and-rice-soup/">chicken and rice soup</a></li>
-        <li><a href="https://cookieandkate.com/vegetarian-tortilla-soup/">vegetarian tortilla soup</a>, uses black beans instead of chicken</li>
-        <li><a href="https://rainbowplantlife.com/10-ingredient-vegan-red-lentil-bolognese/">lentil bolognese</a></li>
-        <li><a href="https://houseofyumm.com/crockpot-turkey-chili/">turkey chili</a>, but you can substitute the turkey for ground pork or beef and it works even better imo. I always cook it on the stovetop</li>
-        <li><a href="https://www.gimmesomeoven.com/white-chicken-chili/">creamy white chicken chili</a>, it feels more like a soup to me and is better after reheating imo. ground chicken worked fine, I cooked it with half a white onion in the same pot before doing anything else. and just use an entire can of corn. works great with monterrey jack cheese as suggested. fresh flour tortillas also are delicious.</li>
-        <li><a href="/blog/jambalaya.html">jambalaya</a></li>
-        <li><a href="https://damndelicious.net/2019/04/15/red-beans-and-rice/">red beans and rice</a></li>
-        <li><a href="https://www.cookingclassy.com/one-pot-cajun-chicken-pasta/">cajun chicken pasta</a></li>
-        <li><a href="https://www.saltandlavender.com/creamy-sausage-and-peppers-pasta/">creamy sausage and peppers pasta</a>, use hot italian sausage. can substitute dry mustard (a teaspoon or two is good). spinach amount doesn't need to be spot on, 5&ndash;6oz is good</li>
-        <li><a href="https://www.allrecipes.com/slow-cooker-honey-garlic-chicken-noodles-recipe-8629517">slow cooker honey garlic chicken noodles</a>, OK to substitute Shaoxing wine 1-to-1 with rice vinegar (but it'll be a little bitter), and Sriacha sauce 1-to-1 with Cholula hot sauce</li>
-        <li><a href="https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/">pancakes!</a></li>
-        <li><a href="https://tris.fyi/blog/late-april-updates.html#rosemary-bread-recipe">rosemary bread</a> (from the blog)</li>
-        <li><a href="https://www.inspiredtaste.net/48394/flour-tortillas/">flour tortillas</a> &mdash; I use a big cast iron skillet and it works great!</li>
-        <li><a href="https://www.allrecipes.com/recipe/17891/golden-sweet-cornbread/">cornbread</a> &mdash; needs a few minutes longer to bake imo, can substitute half the sugar with honey</a></li>
-        <li><a href="https://www.allrecipes.com/recipe/10264/oatmeal-raisin-cookies-i/">oatmeal raisin cookies</a> &mdash; no need to change oven racks though</a></li>
-        <li><a href="https://joyfoodsunshine.com/the-most-amazing-chocolate-chip-cookies/">chocolate chip cookies</a> &mdash; underbaking is less of a risk than you think!</li>
-        <li><a href="https://www.allrecipes.com/recipe/6820/downeast-maine-pumpkin-bread/">pumpkin bread</a> &mdash; add some molasses for flavor depth + moistness</li>
-        <li><a href="https://sallysbakingaddiction.com/homemade-cinnamon-raisin-bagels/">cinnamon raisin bagels</a> &mdash; use 3tsp yeast and proof with the brown sugar</a></li>
-        <li><a href="https://www.bettycrocker.com/recipes/banana-bread/51427396-6764-4b0a-a73a-78c683c703d2">banana bread</a> &mdash; use 2 8-inch loaf pans or half the recipe. the position of the oven rack is really important for this one!</li>
-        <li><a href="/blog/dinner-rolls.html">dinner rolls</a></li>
-        <li>not a recipe, but this <a href="https://ourdailybrine.com/wp-content/uploads/our-daily-brine_salmonella-6.5D-reduction-table.pdf">salmonella reduction table</a> is helpful for cooking meat and poultry</li>
-    </ul>
+    {{ render_bookmarks("recipe") }}
 </section>
+
 <section id="music">
-<h2>music</h2>
-<ul>
-    <li>
-        <a href="https://www.youtube.com/watch?v=tXKZfjH58uA">adele mcallister &mdash; come to the water</a><br />
-        <em>
-            don't you know we were made to nurture the earth? <br /> to feed the hungry and to bind up the hurt <br />
-            to fight injustice, to aid, not to judge <br /> and above everything else, we were made for love
-        </em>
-        <br />
-        and <a href="https://www.youtube.com/watch?v=hrK25iWLnvA">keep a candle burning</a>
-    </li>
-    <li>
-        <a href="https://milesmorkri.bandcamp.com/album/ventifact">miles morkri &mdash; ventifact</a> &mdash; pretty cool mostly instrumental album! hard to pick a favorite track
-    </li>
-    <li>
-        <a href="https://aivisura.bandcamp.com/album/the-black-box-10th-anniversary-deluxe-edition">aivi &amp; surasshu &mdash; the black box (10th anniversary deluxe edition)</a> &mdash;
-        some really cool bonus tracks! i remember listening to the original album on the bus in high school. makes me feel kinda old. honestly check out all of the <a href="https://infloresce.bandcamp.com/">infloresce&nbsp;records</a> stuff. aivi <em>does not miss</em>
-    </li>
-    <li>
-        <a href="https://emperorx.bandcamp.com/album/suggested-improvements-to-transportation-infrastructure-in-the-northeast-corridor">emperor x &mdash; suggested improvements to transportation infrastructure in the northeast corridor</a> &mdash;
-        very cozy memories from when i heard the first and last tracks on this one for the first time, at a college radio station. hopefully y'all know who you are, thanks for a great birthday &lt;3
-    </li>
-</ul>
+    <h2>music</h2>
+    {{ render_bookmarks("music") }}
 </section>
-<section id="sidequests">
-<h2>sidequests</h2>
-<ul>
-    <li><a href="https://docs.google.com/spreadsheets/d/1nvaFerB36Ts8_XKNgdYhwdtGG6y2p5Bqe1K45xsfEag/edit?usp=sharing">surveying all boston fire department fireboxes</a> (medford/somerville boxes included too, but the medford list isn't complete because i haven't found any authoritative-looking list)</li>
-</ul>
-</section>
+
 <section id="data">
-<h2>data</h2>
-<ul>
-    <li><a href="https://services2.arcgis.com/C8EMgrsFcRFL6LrL/arcgis/rest/services/NGS_Datasheets_Feature_Service/FeatureServer">every geodetic marker in one arcgis feature service</a> (<span class="tag">ngs</span>)</li>
-    <li><a href="https://data.mbta.com/views/SpeedRestrictions_prod/1_OverviewDashboard">mbta speed restrictions dashboard (direct link)</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/List_of_United_States_FIPS_codes_by_county">county fips codes</a></li>
-    <li><a href="https://www.census.gov/programs-surveys/acs/data/data-tables/table-ids-explained.html">american community survey data table IDs explained</a> (<span class="tag">census</span>, <span class="tag">acs</span>)</li>
-    <li><a href="ftp://ftp2.census.gov/programs-surveys/acs/summary_file/2021/table-based-SF/data/5YRData">(ftp://) 2021 american community survey data down to blockgroup geography, 5-year averages</a> (<span class="tag">census</span>, <span class="tag">acs</span>)</li>
-    <li><a href="https://www2.census.gov/programs-surveys/acs/summary_file/2021/table-based-SF/documentation/ACS20215YR_Table_Shells.txt">descriptions of tables and fields in the above dataset</a> (<span class="tag">census</span>, <span class="tag">acs</span>)</li>
-    <li><a href="https://maps.huntsvilleal.gov/server/rest/services">huntsville, al arcgis rest endpoint</a></li>
-</ul>
+    <h2>data, maps, and data/mapping tools</h2>
+    {{ render_bookmarks("data") }}
 </section>
-<section id="osm">
-<h2>helpful openstreetmap tools</h2>
-<ul>
-    <li><a href="https://openingh.ypid.de/evaluation_tool/">opening_hours evaluator</a></li>
-    <li><a href="https://taginfo.openstreetmap.org/">taginfo</a>, check if you're using a tag correctly, discover new tags</li>
-    <li><a href="https://ent8r.github.io/NotesReview/">notesreview</a>, find nearby notes that have been open for a long time</li>
-    <li><a href="https://osmcha.org/">osmcha</a> changeset validation tool</li>
-</ul>
+
+<section id="misc">
+    <h2>random other stuff</h2>
+    {{ render_bookmarks("misc") }}
 </section>
-<section id="places">
-<h2>places</h2>
-<ul>
-    <li><a href="https://bostonfirehistory.org/wp-content/uploads/sites/51/2021/03/firealarmmapsc1983.pdf">1983 map of fireboxes in boston</a></li>
-    <li><a href="https://www.coldwarcomms.org/Maps/">long lines maps (scans)</a></li>
-    <li><a href="https://long-lines.com/">long lines maps (overlaid on google maps)</a></li>
-</ul>
-</section>
-<section id="gender">
-<h2>gender <!-- i barely know her --></h2>
-<ul>
-    <li><a href="https://gothfem.me/voice-training/">kat's voice training exercises</a></li>
-    <li><a href="https://www.reddit.com/r/transvoice/comments/d3clhe/ls_voice_training_guide_level_1_for_mtf/">L's voice training exercises</a></li>
-    <li><a href="https://erininthemorn.substack.com/">erin in the morning (publishes a legislative risk map)</a></li>
-    <li><a href="https://archive.is/https://nymag.com/intelligencer/article/trans-rights-biological-sex-gender-judith-butler.html">Freedom of Sex: The moral case for letting trans kids change their bodies</a></li>
-</ul>
-</section>
-<section id="random">
-<h2>random other stuff</h2>
-<ul>
-    <li><a href="https://juckins.net/amtrak_status/archive/html/history.php">asmad &ndash; amtrak status map archive database</a></li>
-    <li>that one time i went to yell at legislators about trans rights, learned that only one person was going to be allowed to speak per issue, and then went <a href="https://www.huntsvilleal.gov/videos/state-legislative-delegation-forum-pt1-feb-2023/">uhhhhh, trans... portation policy! transportation policy.</a> (32:53)</li>
-    <li><a href="https://www.nist.gov/system/files/documents/2023/05/15/SRM%20Catalog.pdf">nist srm catalog (2023-05-15)</a></li>
-    <li><a href="https://cdn.mbta.com/sites/default/files/fmcb-meeting-docs/reports-policies/2018-08-13-station-naming-policy.pdf">policy on the naming of mbta stations (updated 2018-08-13)</a>
-    <li><a href="https://www.massmetrofire.org/sites/default/files/Metrofire%20Mutual%20Aid%20System%20for%20COMPUTER%20VIEWING.pdf">metrofire mutual aid running cards</a> (<a href="/metrofire-mutual-aid.pdf">archived on tris.fyi, updated 2023-08-09</a>)</li>
-    <li><a href="http://roster.transithistory.org/MBTARouteHistory.pdf">changes to transit service in the mbta district, 1964-2023</a> (<a href="/MBTARouteHistory.pdf">archived on tris.fyi, updated 2023-08-09</a>)</li>
-    <li><a href="https://brailleinstitute.org/freefont">atkinson hyperlegible</a>, the font used on this very page!!!</li>
-    <li><a href="https://www.cs.uah.edu/~fcw0002/tortellini.gif">tortellini.gif</a> (mine)</li>
-    <li><a href="https://www.cs.uah.edu/~fcw0002/public_html/_notes/bbts.html">blackboard transact charge protocol reveng docs</a> (mine)</li>
-    <li><a href="https://www.cs.uah.edu/~fcw0002/lockpicking.pdf">mit guide to lock picking</a></li>
-    <li><a href="https://www.cs.uah.edu/~fcw0002/origins.call-list.html">radio station call origins</a></li>
-    <li><a href="https://john.citrons.xyz/">johnvertising</a></li>
-    <li><a href="https://iamkate.com/data/12-bit-rainbow/">the 12-bit rainbow palette</a></li>
-    <li><a href="https://djlorenz.github.io/astronomy/lp2020/overlay/dark.html">light pollution atlas 2020 (david lorenz)</a></li>
-    <li><a href="https://nimi.pona.la/">a toki pona dictionary (nimi.pona.la)</a></li>
-    <li><a href="http://bobcodes.weebly.com/imb.html">Intelligent Mail Barcode (iMB) decoder</a></li>
-    <li><a href="https://www.ssje.org/wp-content/uploads/2020/03/Compline-Guests.pdf">SSJE's Order for Compline</a></li>
-    <li><a href="https://home-manager-options.extranix.com/">Home Manager options</a></li>
-    <li><a href="https://owlsintowels.org/">owls in towels</a></li>
-    <li><a href="https://cat.sketchy.company/">sketchy company service catalog</a> (contains many of my weird website jokes)</li>
-    <li><a href="https://www.episcopalchurch.org/wp-content/uploads/2021/01/daily_prayer_all_seasons_eng_final_pages_0.pdf">Daily Prayer for All Seasons</a> (and <a href="https://f.tris.fyi/daily-prayer-for-all-seasons.bookmarks.txt">bookmarks file</a>, <code>pdftk book.pdf update_info bookmarks.txt output book-with-marks.pdf</code>)</li>
-    <li><a href="https://www.ssje.org/2025/07/22/the-things-that-endure-br-lucas-hall/">Br. Lucas Hall, SSJE &mdash; The Things That Endure</a>. <em>May we, with Mary, learn this hardest lesson, not to cling to passing things, even if those things are good and holy and dear. May we hold on to the things that endure.</em></li>
-    <li><a href="https://www.dandelionmodel.org/">the dandelion model</a>, a hyperlocal organizing template</li>
-    <li><a href="https://alexanderobenauer.com/labnotes/000/">alexander obenauer's user interface research notebook</a></li>
-    <li><a href="https://www.getgrist.com/">grist</a>, hybrid spreadsheet/database thing I keep meaning to check out &mdash; I think it's kind of like airtable?</a></li>
-    <li>(+2025-11-24) <a href="https://www.persuasion.community/p/the-problem-with-effective-altruism">the problem with effective altruism</a> &mdash; not sure I totally agree, but a useful read regardless. I tend to think we should hold ourselves to our local community first. maybe a blog post forthcoming...</li>
-</ul>
+
 <script>
     var targetLink;
 

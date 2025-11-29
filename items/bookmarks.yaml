@@ -1,0 +1,579 @@
+type: bookmark
+items:
+
+  # publications {{{
+  - created: 2024-03-24
+    author: Cal Paterson
+    title: An oral history of Bank Python
+    url: https://calpaterson.com/bank-python.html
+    text: "<>"
+    tags: [ pubs, finance, computer ]
+
+  - created: 2023-12-19
+    author: Bits About Money
+    title: Charitable donations and the infrastructure supporting them
+    url: https://www.bitsaboutmoney.com/archive/charitable-donations-infrastructure/
+    text: "<> --- a fascinating article about donor advised funds (time travel mechanism for rich people to do more tax deductions)"
+    tags: [ pubs, finance ]
+
+  - created: 2024-03-25
+    author: Hillel Wayne
+    title: Planner programming blows my mind
+    url: https://www.hillelwayne.com/post/picat/
+    text: "[an essay about planner programming](), which is kind of like logic programming"
+    tags: [ pubs, computer ]
+
+  - created: 2023-12-19
+    author: NYC DOT
+    title: "Bicyclist use of Leading Pedestrian Intervals: Pilot Program Results"
+    url: https://www.nyc.gov/html/dot/downloads/pdf/bike-lpi-study-memo.pdf
+    text: "allowing bicyclists to follow leading pedestrian signals [is safe, according to NYC DOT]()"
+    tags: [ pubs, streets ]
+
+  - created: 2023-09-08
+    author: Brendan J. Nolan et al.
+    title: "Early Access to Testosterone Therapy in Transgender and Gender-Diverse Adults Seeking Masculinization"
+    url: https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2809058
+    text: "access to gender-affirming healthcare [statistically significantly reduces suidicality in transgender adults]() ([archived here](https://tris.fyi/nolan_2023_oi_230926_1692977943.94493.pdf))"
+    tags: [ pubs, gender ]
+
+  - created: 2023-12-19
+    author: Subpixel Space
+    title: Open Transclude for Networked Writing
+    url: https://subpixel.space/entries/open-transclude/
+    text: "<> --- a neat way of using iframes to cite other content"
+    tags: [ pubs, computer ]
+
+  - created: 2023-12-19
+    author: Graham Christensen
+    title: Erase your darlings
+    url: https://grahamc.com/blog/erase-your-darlings/
+    text: "<> --- applying immutable infra principles to stateful systems"
+    tags: [ pubs, computer ]
+
+  - created: 2024-10-25
+    author: Gusto Engineering Blog
+    title: "How ACH works: A developer perspective"
+    url: https://web.archive.org/web/20170825204308/http://engineering.gusto.com/how-ach-works-a-developer-perspective-part-1/
+    text: "<>"
+    tags: [ pubs, finance, computer ]
+
+  - created: 2024-10-25
+    author: HiveKit
+    title: "How we've saved 98% in cloud costs by writing our own database"
+    url: https://hivekit.io/blog/how-weve-saved-5000-percent-in-cloud-costs-by-writing-our-own-database/
+    text: "<>, an interesting lesson (?) in general vs. special-purpose databases"
+    tags: [ pubs, computer ]
+
+  - created: 2025-01-24
+    title: the Job Accommodation Network
+    url: https://askjan.org/
+    text: "<>, an incredibly detailed resource for applying the Americans with Disabilities Act at your workplace"
+    tags: [ pubs, labor, accessibility ]
+
+  - created: 2025-01-24
+    title: virus.sucks
+    url: https://virus.sucks
+    text: "<>, unofficial knowledge base and toolset for covid-cautious folks using the Pluslife NAT test device, which while not approved by the FDA in the US, has comparable sensitivity to PCR tests"
+    tags: [ pubs, health ]
+
+  - created: 2025-01-24
+    author: Laura Herrmann et al.
+    title: "Comparison of the diagnostic accuracy of the Pluslife Mini Dock RHAM technology with Abbott ID Now and Cepheid GenXpert: A retrospective evaluation study"
+    url: https://www.nature.com/articles/s41598-024-64406-9
+    text: "in fact, [the Pluslife NAT is about as good as Abbott ID NOW]()"
+    tags: [ pubs, health ]
+
+  - created: 2025-05-17
+    author: Steve Losh
+    title: Git Koans
+    url: https://stevelosh.com/blog/2013/04/git-koans/
+    text: "<>"
+    tags: [ pubs, computer ]
+
+  - created: 2025-11-01
+    author: view from the present
+    title: shopping is an exasperating nightmare
+    url: https://drmollytov.smol.pub/2025-05-12
+    text: "<>"
+    tags: [ pubs, capitalism ]
+
+  - created: 2025-11-01
+    author: Robin Sloan
+    title: An app can be a home-cooked meal
+    url: "https://www.robinsloan.com/notes/home-cooked-app/"
+    text: "[home cooked apps]() --- tools you build for yourself, friends, family, that don't change much and already know who is using them and how"
+    tags: [ pubs, computer, community ]
+
+  - created: 2025-11-01
+    author: Julia Evans
+    title: "You can use `fzf` to review git commits"
+    url: "https://jvns.ca/til/fzf-preview-git-commits/"
+    text: "<> (and much more!)"
+    tags: [ pubs, computer ]
+
+  - created: 2025-11-01
+    author: Marcin Wichary
+    title: "The hardest working font in Manhattan"
+    url: "https://aresluna.org/the-hardest-working-font-in-manhattan/"
+    text: "<>, an incredible exploration of letterforms you've definitely seen before, with gorgeous pictures"
+    tags: [ pubs, design ]
+
+  - created: 2023-12-19
+    title: "Kat's voice training exercises"
+    url: https://gothfem.me/voice-training/
+    text: "<>"
+    tags: [ pubs, gender ]
+
+  - created: 2023-12-19
+    title: "L's voice training exercises"
+    url: https://old.reddit.com/r/transvoice/comments/d3clhe/ls_voice_training_guide_level_1_for_mtf/
+    text: "<>"
+    tags: [ pubs, gender ]
+
+  - created: 2025-11-01
+    title: "Freedom of Sex: The moral case for letting trans kids change their bodies"
+    url: https://archive.is/https://nymag.com/intelligencer/article/trans-rights-biological-sex-gender-judith-butler.html
+    text: "<>"
+    tags: [ pubs, gender ]
+
+  # }}}
+
+  # recipes {{{
+  - created: 2024-10-25
+    title: Chicken and rice soup
+    url: https://www.recipetineats.com/chicken-and-rice-soup/
+    text: "<>"
+    tags: [ recipe, soup, main ]
+
+  - created: 2025-05-17
+    title: Vegetarian tortilla soup
+    url: https://www.recipetineats.com/chicken-and-rice-soup/
+    text: "<>, uses black beans instead of chicken"
+    tags: [ recipe, soup, main-dish ]
+
+  - created: 2025-05-17
+    title: Lentil bolognese
+    url: https://rainbowplantlife.com/10-ingredient-vegan-red-lentil-bolognese/
+    text: "<>"
+    tags: [ recipe, pasta, main-dish ]
+
+  - created: 2025-01-24
+    title: Turkey chili
+    url: https://houseofyumm.com/crockpot-turkey-chili/
+    text: "<>, this is my default chili recipe, I usually substitute the turkey with ground beef"
+    tags: [ recipe, soup, main-dish ]
+
+  - created: 2025-01-24
+    title: Creamy white chicken chili
+    url: https://www.gimmesomeoven.com/white-chicken-chili/
+    text: "<>, though it feels more like a soup to me and is better after reheating imo. ground chicken worked fine, I cooked it with half a white onion in the same pot before doing anything else. and just use an entire can of corn. works great with monterrey jack cheese as suggested. fresh flour tortillas also are delicious."
+    tags: [ recipe, soup, main-dish ]
+
+  - created: 2024-10-25
+    title: Jambalaya
+    url: https://tris.fyi/blog/jambalaya.html
+    text: "<>, from the blog"
+    tags: [ recipe, main-dish ]
+
+  - created: 2024-10-25
+    title: Red beans and rice
+    url: https://damndelicious.net/2019/04/15/red-beans-and-rice/
+    text: "<>, goes great with cornbread"
+    tags: [ recipe, main-dish ]
+
+  - created: 2025-01-24
+    title: One pot Cajun chicken pasta
+    url: https://www.cookingclassy.com/one-pot-cajun-chicken-pasta/
+    text: "[Cajun chicken pasta]()"
+    tags: [ recipe, pasta, main-dish ]
+
+  - created: 2025-01-24
+    title: Creamy sausage and peppers pasta
+    url: https://www.saltandlavender.com/creamy-sausage-and-peppers-pasta/
+    text: "<>, use hot Italian sausage. can substitute dry mustard (a teaspoon or two is good). spinach amount doesn't need to be spot on, 5&ndash;6oz is good"
+    tags: [ recipe, pasta, main-dish ]
+
+  - created: 2025-01-24
+    title: Slow cooker honey garlic chicken noodles
+    url: https://www.allrecipes.com/slow-cooker-honey-garlic-chicken-noodles-recipe-8629517
+    text: "<>, it's OK to substitute Shaoxing wine 1-to-1 with rice vinegar (but it'll be a little bitter), and Sriacha sauce 1-to-1 with Cholula hot sauce"
+    tags: [ recipe, main-dish ]
+
+  - created: 2025-11-01
+    title: Good old fashioned pancakes
+    url: https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/
+    text: "[pancakes!]() they could use some more butter, though."
+    tags: [ recipe, main-dish ]
+
+  - created: 2025-11-01
+    title: Rosemary bread
+    url: https://tris.fyi/blog/late-april-updates.html#rosemary-bread-recipe
+    text: "<>, from the blog"
+    tags: [ recipe, bread ]
+
+  - created: 2025-03-12
+    title: Flour tortillas
+    url: https://www.inspiredtaste.net/48394/flour-tortillas/
+    text: "<> --- I use a big cast iron skillet and it works great!"
+    tags: [ recipe, side ]
+
+  - created: 2024-10-25
+    title: Golden sweet cornbread
+    url: https://www.allrecipes.com/recipe/17891/golden-sweet-cornbread/
+    text: "<>"
+    tags: [ recipe, side ]
+
+  - created: 2024-10-25
+    title: Oatmeal raisin cookies
+    url: https://www.allrecipes.com/recipe/10264/oatmeal-raisin-cookies-i/
+    text: "<> --- no need to change oven racks though"
+    tags: [ recipe, dessert ]
+
+  - created: 2025-01-24
+    title: The most amazing chocolate chip cookies
+    url: https://joyfoodsunshine.com/the-most-amazing-chocolate-chip-cookies/
+    text: "[Chocolate chip cookies]() --- underbaking is less of a risk than you think, I promise!!!"
+    tags: [ recipe, dessert ]
+
+  - created: 2025-01-24
+    title: Downeast Maine pumpkin bread
+    url: https://www.allrecipes.com/recipe/6820/downeast-maine-pumpkin-bread/
+    text: "[Pumpkin bread] --- add some molasses for flavor depth and moistness, don't use as much sugar (2 cups is plenty)"
+    tags: [ recipe, dessert ]
+
+  - created: 2024-10-25
+    title: Cinnamon raisin bagels
+    url: https://sallysbakingaddiction.com/homemade-cinnamon-raisin-bagels/
+    text: "<> --- use 3tsp yeast and proof with the brown sugar"
+    tags: [ recipe ]
+
+  - created: 2024-10-25
+    title: Banana bread
+    url: https://www.bettycrocker.com/recipes/banana-bread/51427396-6764-4b0a-a73a-78c683c703d2
+    text: "<> --- use 2 8-inch loaf pans or half the recipe. the position of the oven rack is really important for this one!"
+    tags: [ recipe, dessert ]
+
+  - created: 2024-10-25
+    title: Dinner rolls
+    url: https://tris.fyi/blog/dinner-rolls.html
+    text: "<>"
+    tags: [ recipe, side ]
+
+  - created: 2025-11-24
+    author: Our Daily Brine
+    title: Salmonella reduction table
+    url: https://ourdailybrine.com/wp-content/uploads/our-daily-brine_salmonella-6.5D-reduction-table.pdf
+    text: "<> --- helpful for cooking meat and poultry, especially at lower temps"
+    tags: [ recipe ]
+  # }}}
+
+  # music {{{
+  - created: 2023-12-19
+    author: Adele McAllister
+    title: Come to the Water
+    url: https://www.youtube.com/watch?v=tXKZfjH58uA
+    text: |
+      <><br />
+      <em>
+            don't you know we were made to nurture the earth? <br /> to feed the hungry and to bind up the hurt <br />
+            to fight injustice, to aid, not to judge <br /> and above everything else, we were made for love
+        </em>
+
+    tags: [ music, folksy ]
+
+  - created: 2025-01-24
+    author: Adele McAllister
+    title: Keep a Candle Burning
+    url: https://www.youtube.com/watch?v=hrK25iWLnvA
+    text: "<>"
+    tags: [ music, folksy ]
+
+  - created: 2023-12-19
+    author: miles morkri
+    title: Ventifact
+    url: https://milesmorkri.bandcamp.com/album/ventifact
+    text: "<> --- pretty cool mostly instrumental album! hard to pick a favorite track"
+    tags: [ music ]
+
+  - created: 2023-12-19
+    author: aivi & surasshu
+    title: The Black Box (10th Anniversary Deluxe Edition)
+    url: https://aivisura.bandcamp.com/album/the-black-box-10th-anniversary-deluxe-edition
+    text: "<> --- some really cool bonus tracks! i remember listening to the original album on the bus in high school. makes me feel kinda old."
+    tags: [ music ]
+
+  - created: 2023-12-19
+    title: Infloresce Records
+    url: https://infloresce.bandcamp.com/
+    text: "everything at <> is quite good; aivi doesn't miss"
+    tags: [ music ]
+
+  - created: 2023-12-19
+    author: Emperor X
+    title: Suggested Improvements to Transportation Infrastructure in the Northeast Corridor
+    url: https://emperorx.bandcamp.com/album/suggested-improvements-to-transportation-infrastructure-in-the-northeast-corridor
+    text: "<> --- very cozy memories from when i heard the first and last tracks on this one for the first time, at a college radio station. hopefully y'all know who you are, thanks for a great birthday <3"
+    tags: [ music ]
+
+  - created: 2025-11-27
+    author: Marielle Kraft
+    title: The Right People Will Love You
+    url: https://open.spotify.com/album/4tRZbmhdAPybZIYyyM6Kb7
+    text: "<>"
+    tags: [ music ]
+  # }}}
+
+  # data, maps, mapping tools {{{
+  - created: 2023-12-19
+    title: Every geodetic marker in one ArcGIS feature service
+    url: https://services2.arcgis.com/C8EMgrsFcRFL6LrL/arcgis/rest/services/NGS_Datasheets_Feature_Service/FeatureServer
+    text: "<>"
+    tags: [ data, maps ]
+
+  - created: 2023-12-19
+    title: List of United States FIPS codes by county
+    url: https://en.wikipedia.org/wiki/List_of_United_States_FIPS_codes_by_county
+    text: "<>"
+    tags: [ data, census ]
+
+  - created: 2023-12-19
+    title: American Community Survey table IDs explained
+    url: https://www.census.gov/programs-surveys/acs/data/data-tables/table-ids-explained.html
+    text: "<>"
+    tags: [ data, census ]
+
+  - created: 2023-12-19
+    title: American Community Survey 5-year data (2021)
+    url: ftp://ftp2.census.gov/programs-surveys/acs/summary_file/2021/table-based-SF/data/5YRData
+    text: "[(ftp://) 2021 American Community Survey data down to blockgroup geography, 5-year averages]()"
+    tags: [ data, census ]
+
+  - created: 2023-12-19
+    title: American Community Survey 5-year table shells (2021)
+    url: https://www2.census.gov/programs-surveys/acs/summary_file/2021/table-based-SF/documentation/ACS20215YR_Table_Shells.txt
+    text: "[Descriptions of tables and fields in the above dataset]()"
+    tags: [ data, census ]
+
+  - created: 2023-12-19
+    title: Huntsville, AL ArcGIS REST endpoint
+    url: https://maps.huntsvilleal.gov/server/rest/services
+    text: "<>"
+    tags: [ data, maps ]
+
+  - created: 2023-12-19
+    title: Boston, MA firebox maps (1983)
+    url: https://bostonfirehistory.org/wp-content/uploads/sites/51/2021/03/firealarmmapsc1983.pdf
+    text: "<>"
+    tags: [ data, maps, firebox ]
+
+  - created: 2023-12-19
+    author: Cold War Comms
+    title: "Long Lines maps"
+    url: https://www.coldwarcomms.org/Maps/
+    text: "<> (scans)"
+    tags: [ data, maps, long-lines ]
+
+  - created: 2023-12-19
+    title: "Long Lines history"
+    url: "https://long-lines.com/"
+    text: "<> and maps, overlaid on Google Maps, with machine readable datasets"
+    tags: [ data, maps, long-lines ]
+
+  - created: 2023-12-19
+    title: "Amtrak Status Map Archive Database"
+    url: https://juckins.net/amtrak_status/archive/html/history.php
+    text: "<> (ASMAD)"
+    tags: [ data, transit ]
+
+  - created: 2023-12-19
+    title: OpenStreetMap opening_hours evaluator
+    url: https://openingh.ypid.de/evaluation_tool/
+    text: "<>"
+    tags: [ data, maps, osm ]
+
+  - created: 2023-12-19
+    title: OpenStreetMap taginfo
+    url: https://taginfo.openstreetmap.org/
+    text: "<>, check if you're using a tag correctly, discover new tags"
+    tags: [ data, maps, osm ]
+
+  - created: 2023-12-19
+    title: OpenStreetMap NotesReview
+    url: https://ent8r.github.io/NotesReview/
+    text: "<>, find nearby notes that have been open for a long time"
+    tags: [ data, maps, osm ]
+
+  - created: 2023-12-19
+    title: osmcha
+    url: https://osmcha.org/
+    text: "<> changeset validation tool"
+    tags: [ data, maps, osm ]
+  # }}}
+
+  # misc {{{
+  - created: 2023-12-19
+    title: "2023 Huntsville, AL state legislative delegation forum"
+    url: "https://www.huntsvilleal.gov/videos/state-legislative-delegation-forum-pt1-feb-2023/"
+    text: "that one time i went to yell at legislators about trans rights, learned that only one person was going to be allowed to speak per issue, and then went [uhhhhh, trans... portation policy! transportation policy.]() (32:53)"
+    tags: [ misc, gov ]
+
+  - created: 2023-12-19
+    author: "NIST"
+    title: "2023 Standard Reference Material catalog"
+    url: https://www.nist.gov/system/files/documents/2023/05/15/SRM%20Catalog.pdf
+    text: "<>"
+    tags: [ misc ]
+
+  - created: 2023-12-19
+    author: MBTA
+    title: "Station Naming Policy"
+    url: https://cdn.mbta.com/sites/default/files/fmcb-meeting-docs/reports-policies/2018-08-13-station-naming-policy.pdf
+    text: "<>"
+    tags: [ misc, transit ]
+
+  - created: 2023-08-09
+    author: Metrofire
+    title: Mutual Aid Running Cards
+    url: "https://www.massmetrofire.org/sites/default/files/Metrofire%20Mutual%20Aid%20System%20for%20COMPUTER%20VIEWING.pdf"
+    text: "<> ([archived here](https://tris.fyi/metrofire-mutual-aid.pdf))"
+    tags: [ misc ]
+
+  - created: 2023-08-09
+    author: Transit History
+    title: Changes to transit service in the MBTA district, 1964-present
+    url: http://roster.transithistory.org/MBTARouteHistory.pdf
+    text: "<> ([archived here](https://tris.fyi/MBTARouteHistory.pdf))"
+    tags: [ misc, transit ]
+
+  - created: 2023-12-19
+    author: Braille Institute
+    title: Atkinson Hyperlegible
+    url: https://brailleinstitute.org/freefont
+    text: "<>, the font used on this very page!"
+    tags: [ misc, accessibility ]
+
+  - created: 2023-12-19
+    title: tortellini.gif
+    url: https://www.cs.uah.edu/~fcw0002/tortellini.gif
+    text: "<>"
+    tags: [ misc ]
+
+  - created: 2023-12-19
+    title: Blackboard Transact chage protocol reverse engineering notes
+    url: https://www.cs.uah.edu/~fcw0002/public_html/_notes/bbts.html
+    text: "<>"
+    tags: [ misc, computer ]
+
+  - created: 2023-12-19
+    title: MIT Guide to Lock Picking
+    url: https://www.cs.uah.edu/~fcw0002/lockpicking.pdf
+    text: "<>"
+    tags: [ misc ]
+
+  - created: 2023-12-19
+    title: Radio station call origins
+    url: https://www.cs.uah.edu/~fcw0002/origins.call-list.html
+    text: "<>"
+    tags: [ misc ]
+
+  - created: 2023-12-19
+    title: Johnvertising
+    url: https://john.citrons.xyz/
+    text: "<>"
+    tags: [ misc ]
+
+  - created: 2023-12-19
+    title: The 12-bit rainbow palette
+    url: https://iamkate.com/data/12-bit-rainbow/
+    text: "<>"
+    tags: [ misc, design ]
+
+  - created: 2023-12-19
+    author: David Lorenz
+    title: Light Polution Atlas 2020
+    url: https://djlorenz.github.io/astronomy/lp2020/overlay/dark.html
+    text: "<>"
+    tags: [ misc ]
+
+  - created: 2023-12-19
+    title: a Toki Pona dictionary
+    url: https://nimi.pona.la/
+    text: "<> (nimi.pona.la)"
+    tags: [ misc ]
+
+  - created: 2024-01-29
+    title: Intelligent Mail Barcode (iMB) decoder
+    url: http://bobcodes.weebly.com/imb.html
+    text: "<>"
+    tags: [ misc ]
+
+  - created: 2025-01-24
+    author: SSJE
+    title: an Order for Compline
+    url: https://www.ssje.org/wp-content/uploads/2020/03/Compline-Guests.pdf
+    text: "<>"
+    tags: [ misc, religion ]
+
+  - created: 2025-05-17
+    title: Home Manager options
+    url: https://home-manager-options.extranix.com/
+    text: "<>"
+    tags: [ misc, computer ]
+
+  - created: 2025-11-01
+    title: Owls in Towels
+    url: https://owlsintowels.org/
+    text: "<>"
+    tags: [ misc ]
+
+  - created: 2025-11-01
+    title: sketchy.company Service Catalog
+    url: https://cat.sketchy.company/
+    text: "<> (contains many of my weird website jokes)"
+    tags: [ misc ]
+
+  - created: 2025-11-01
+    title: Daily Prayer for All Seasons
+    url: https://www.episcopalchurch.org/wp-content/uploads/2021/01/daily_prayer_all_seasons_eng_final_pages_0.pdf
+    text: "<>"
+    tags: [ misc, religion ]
+
+  - created: 2025-11-01
+    title: PDF bookmarks for Daily Prayer for All Seasons
+    url: https://f.tris.fyi/daily-prayer-for-all-seasons.bookmarks.txt
+    text: "<>, `pdftk book.pdf update_info bookmarks.txt output book-with-marks.pdf`"
+    tags: [ misc, religion ]
+
+  - created: 2025-11-01
+    author: Br. Lucas Hall, SSJE
+    title: The Things That Endure
+    url: https://www.ssje.org/2025/07/22/the-things-that-endure-br-lucas-hall/
+    text: "<>. *May we, with Mary, learn this hardest lesson, not to cling to passing things, even if those things are good and holy and dear. May we hold on to the things that endure.*"
+    tags: [ misc, religion ]
+
+  - created: 2025-11-01
+    title: the Dandelion Model
+    url: https://www.dandelionmodel.org/
+    text: "<>, a hyperlocal organizing template"
+    tags: [ misc, organizing ]
+
+  - created: 2025-11-10
+    author: Alexander Obenauer
+    title: User interface research notebook
+    url: https://alexanderobenauer.com/labnotes/000/
+    text: "<>"
+    tags: [ misc, design ]
+
+  - created: 2025-11-10
+    title: Grist
+    url: https://www.getgrist.com/
+    text: "<>, hybrid spreadsheet/database thing I keep meaning to check out &mdash; I think it's kind of like airtable?"
+    tags: [ misc ]
+
+  - created: 2025-11-24
+    title: The problem with effective altruism
+    url: https://www.persuasion.community/p/the-problem-with-effective-altruism
+    text: "<> --- not sure I totally agree (I tend to think we should hold ourselves accountable to our local community first and above almost all else), but an interesting read!"
+    tags: [ misc ]
+  # }}}

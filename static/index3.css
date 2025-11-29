@@ -54,10 +54,33 @@ input#search {
     font-size: 14pt;
     flex: 2;
 }
+
+ul.bookmarks {
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+}
+
+ul.bookmarks > li {
+    padding-bottom: 0.3em;
+    border-bottom: 1px dotted grey;
+}
+
 span.tag {
     font-size: 10pt;
     border: 1px solid grey;
 }
+
+.item-meta {
+    font-size: 11pt;
+}
+
+.item-meta > .tag { 
+    font-size: 10pt;
+    border: 1px solid grey;
+    padding: 0.25pt 0.3em;
+}
+
 ul.bigmargins > li {
     margin-bottom: 0.5em;
 }

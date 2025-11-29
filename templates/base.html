@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <title>{% block title %}{{ page_title }}{% endblock %}</title>
-        <link rel="stylesheet" href="{{ url_for("static", filename="index3.css") }}">
+        <link rel="stylesheet" href="{{ url_for("static", filename="index3.css", _v="2025-11-29") }}">
         {% block head %}{% endblock %}
         {% if has_sidenotes|default(false) %}
         <!-- sidenote fix -->
