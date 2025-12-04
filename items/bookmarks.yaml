@@ -137,6 +137,12 @@ items:
     text: "<>"
     tags: [ pubs, gender ]
 
+  - created: 2025-12-03
+    title: "Augmenting Long-term Memory"
+    url: https://augmentingcognition.com/ltm.html
+    text: "<>"
+    tags: [ pubs ]
+
   # }}}
 
   # recipes {{{
