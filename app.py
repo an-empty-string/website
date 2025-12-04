@@ -93,8 +93,22 @@ def render_markdown(text):
         ]
     )
 
-    text = text.replace(" --- ", " &mdash; ")
-    text = text.replace("...", "&hellip;")
+    lines = text.split("\n")
+    in_code_block = False
+    transformed_lines = []
+
+    for line in lines:
+        if line.startswith("```"):
+            in_code_block = not in_code_block
+
+        line = line.replace(" --- ", " &mdash; ")
+
+        if not in_code_block:
+            line = line.replace("...", "&hellip;")
+
+        transformed_lines.append(line)
+
+    text = "\n".join(transformed_lines)
 
     return md, md.convert(text)
 
