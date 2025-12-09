@@ -143,6 +143,13 @@ items:
     text: "<>"
     tags: [ pubs ]
 
+  - created: 2025-12-08
+    title: "It Was Raining in the Data Center"
+    author: "Everest Pipkin"
+    url: "https://kilthub.cmu.edu/articles/thesis/It_Was_Raining_in_the_Data_Center/6723464?file=12258311"
+    text: "<> --- an exploration of the Internet's physicality"
+    tags: [ pubs ]
+
   # }}}
 
   # recipes {{{
@@ -245,7 +252,7 @@ items:
   - created: 2025-01-24
     title: Downeast Maine pumpkin bread
     url: https://www.allrecipes.com/recipe/6820/downeast-maine-pumpkin-bread/
-    text: "[Pumpkin bread] --- add some molasses for flavor depth and moistness, don't use as much sugar (2 cups is plenty)"
+    text: "[Pumpkin bread]() --- add some molasses for flavor depth and moistness, don't use as much sugar (2 cups is plenty)"
     tags: [ recipe, dessert ]
 
   - created: 2024-10-25
