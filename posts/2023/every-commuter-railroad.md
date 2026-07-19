@@ -1,6 +1,7 @@
 ---
 title: Riding every commuter railroad operator in the Northeast Corridor
 posted_on: 2023-12-22
+featured: true
 ---
 
 About a week ago, I realized I hadn't booked tickets to visit my family (in northern Virginia) for the holidays. I live in Boston, so the most normal way is a train trip down Amtrak's Northeast Corridor &mdash; the Northeast Regional service (a little over 8 hours) or the Acela (~6.5 hours) would get me there.

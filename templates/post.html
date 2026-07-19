@@ -10,6 +10,9 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for("static", filename="pygments.css") }}">
+{% if meta.noindex %}
+<meta name="robots" content="noindex" />
+{% endif %}
 {% if meta.og_props %}
 {% for prop, value in meta.og_props.items() %}
     <meta property="og:{{ prop }}" content="{{ value }}" />

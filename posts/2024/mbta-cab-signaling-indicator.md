@@ -1,6 +1,7 @@
 ---
 title: "Massachusetts Bodged Transistor Authority"
 subtitle: "How we turned MBTA Red Line equipment into a car speedometer"
+featured: true
 
 author: '<a href="https://philo.gay">Philo Gray</a> &amp; Tris Emmy Wilson'
 posted_on: 2024-03-27

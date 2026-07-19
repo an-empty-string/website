@@ -24,9 +24,9 @@
 <section class="transformable">
     <ul class="list-margins">
         <li>
-            <strong>tris emmy wilson</strong> <em>(she/her)</em> is trying her best, going places, doing things
+            <strong>Tris Emmy Wilson</strong> <em>(she/her<span id="extra-name-parens" title="yes someone actually tried this"></span>)</em> is trying her best, going places, doing things
             <ul>
-                <li>mostly in the greater Boston area, but Huntsville (AL) is still home</li>
+                <li>in Huntsville and Boston</li>
                 <li>ringing bells, baking bread, mending clothes, chanting psalms, singing hymns</li>
                 <li>trying to keep love and kindness above all else</li>
                 <li>misses being able to see the stars</li>
@@ -39,9 +39,9 @@
 
     <h2>from the blog</h2>
     <ul class="list-margins nobullet">
-        {% for slug, post, _ in posts if post.published|default(true) %}
-        {% if loop.index <= 3 %}
-        <li><strong>{{ post.posted_on.strftime("%B %d") }}:</strong> <a href="{{ url_for('post', slug=slug) }}">{{ post.title }}</a></li>
+        {% for slug, post, _ in posts if post.published|default(true) and not (post.hide_from_homepage|default(false)) %}
+        {% if loop.index <= 3 or post.featured %}
+        <li><strong>{{ post.posted_on.strftime("%b %d '%y") }}:</strong> <a href="{{ url_for('post', slug=slug) }}">{{ post.title }}</a></li>
         {% endif %}
         {% endfor %}
         <li><a href="/blog/">check out all the posts here!</a></li>
@@ -96,7 +96,12 @@
     <summary><small>secret website control panel</small></summary>
     <button id="turtle-restore">restore turtle!</button>
     <button id="cat-toggle">hide the cat</button>
+    <button id="greener">make the website more green</button>
 </details>
+
+<hr />
+
+<div id="quote" style="font-size: 80%; font-style: oblique;"></div>
 
 <script src="/static/oneko-webring.js"></script>
 
@@ -303,6 +308,64 @@
     document.body.addEventListener("touchend", mouseUp);
     restoreButton.addEventListener("click", restoreTurtle);
     turtle.addEventListener("wheel", embiggenTurt);
+
+    const quotes = [
+        "i don't wanna give up\ndon't give up",
+        "sing a song full of the faith that the dark past has taught us,\nsing a song full of the hope that the present has brought us!",
+        "how do you stay soft\nwhen the days are getting harder\nhow do you stay soft\nthat's where the light comes in",
+        "let it be good when it's good\nlet it be easy when it's easy\nlet it be real when it's real",
+        "and politicians will still tear us down\nbut in that moment, i almost forgot\n'cause you loved me so loud",
+        "you belong among the wildflowers\nyou belong somewhere close to me\nfar away from your trouble and worry\nyou belong somewhere you feel free",
+        "the less i seek my source for some definitive\ncloser i am to fine",
+        "this year, i swear it will be buried in actions\nthis year, i swear it will be buried in words",
+        "all we talk about is leaving\nall that i know is\nno matter how far away\nthis is the place we were made",
+        "they're so pretty, it hurts\ni'm not talking 'bout boys\ni'm talking 'bout girls\nthey're so pretty with their button-up shirts",
+        "how 'bout that, you and me\nlots of love in tiny things\nall we have is all i need\nall the love's in tiny things",
+        "and i would say i love you, but saying it out loud is hard\nso i won't say it at all",
+        "all of my affections\ni give them all to you\nmaybe by next summer\nwe won't have changed our tune",
+        "will happen\nhappening\nhappened",
+        "i'll come to you, i'll sing to you\nlike it's Christmas in the room\ni'll dance with you, i'll laugh with you\n'til it's Christmas in the room",
+        "i can see a lot of life in you\ni can see a lot of bright in you\nand i think the dress looks nice on you",
+        "i build bridges with these arms\ni will not build a fortress",
+        "do you hear the people sing?\nsinging a song of angry men?\nit is the music of a people\nwho will not be slaves again",
+        "i forgive you, mother, i can hear you\nand i long to be near you\nbut every road leads to an end",
+        "we're underneath a thousand shining stars\nwhy don't you let yourself just be wherever you are?",
+        "if i could begin to be\nhalf of what you think of me\ni could do about anything me\ni could even learn how to love\nlike you",
+        "there'll come a day you walk through that door\nfinally see what you've always been sure\nhope that you find what you're looking for",
+    ];
+
+    const quote = quotes[Math.floor(Math.random() * quotes.length)];
+
+    const its_not = [
+        "not short for Tristan",
+        "just one s, not Triss",
+        "only 4 letters, not Trish",
+        "only 4 letters, not Trisha",
+        "only 4 letters, not Trissa",
+        "only 4 letters, not Trist",
+        "only 4 letters, not Trace",
+        "using the vowel you'd expect, not Trys",
+        "starts with T, not Kris, but it does rhyme!",
+        "doesn't rhyme with 'fries'",
+        "has an 'r' sound; not Tish",
+        "ends with 's', not Trif",
+    ];
+
+    const its_not_selected = its_not[Math.floor(Math.random() * its_not.length)];
+
+    function makeTheWebsiteMoreGreen() {
+        var theColors = getComputedStyle(document.body).backgroundColor.substring(4).replace(")", "").split(", ")
+        const r = parseInt(theColors[0]) - 10;
+        const g = parseInt(theColors[1]) + 3;
+        const b = parseInt(theColors[2]) - 10;
+        document.body.style.backgroundColor = "rgb(" + r + ", " + g + ", " + b + ")";
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("quote").innerHTML = quote.replace(/\n/g, "<br>");
+        document.getElementById("extra-name-parens").innerHTML = ", " + its_not_selected;
+        document.getElementById("greener").addEventListener("click", makeTheWebsiteMoreGreen);
+    });
 
 </script>
 {% endblock %}

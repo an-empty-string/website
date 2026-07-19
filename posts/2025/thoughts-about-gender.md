@@ -3,6 +3,7 @@ title: thoughts about gender
 summary: some thoughts about gender and my sense of self
 posted_on: 2025-07-13
 show_toc: false
+featured: true
 ---
 
 A few of my friends ([Brooke](https://breq.dev/2025/06/22/gender), [Mia](https://miakizz.quest/posts/trans1/), [Ava](https://avasilver.dev/blog/transition)) have written about their experiences of gender lately. I think I have a pretty unique take on this whole gender situation; this is a collection of interrelated thoughts that folks might find interesting but isn't meant to be comprehensive.

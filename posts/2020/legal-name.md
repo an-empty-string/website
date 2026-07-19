@@ -2,7 +2,7 @@
 title: Changing your legal name in Madison&nbsp;County, Alabama
 summary: A detailed how-to guide on changing your legal name in Madison County, based on my experiences in September 2020 and kept up to date with feedback from the local trans community.
 posted_on: 2020-10-17
-updated_on: 2025-05-16
+updated_on: 2026-02-01
 ---
 
 This is how I changed my legal name in Madison County, AL. The process is definitely different elsewhere.
@@ -19,7 +19,15 @@ In Alabama, probate courts local to each county have the authority to issue an o
 
 In Madison County, as of October 2023, the form to petition the court is [available online](https://www.madisoncountyal.gov/home/showdocument?id=7161). It's a fillable PDF so you shouldn't have any trouble with formatting, etc (this was not always the case).
 
-I specifically included "gender identity" in the "reason you are requesting a name change" space and had no issues.
+In the "WHEREFORE" section, you only need to fill in one set of boxes ("legal name on birth certificate", "married name", or "other reason") based on whether or not you have changed your name before. Here is a list of when you should choose which option; stop once you reach a scenario applicable to you:
+
+* If you haven't ever changed your name before, or your birth certificate name matches otherwise your current legal name, choose the first set of boxes ("legal name on birth certificate").
+* If you've most recently changed any part of your legal name due to marriage, choose the second set of boxes ("married name").
+* If you've changed your legal name by court order before as part of a gender transition, or for any other non-marriage-related reason, choose the third set of boxes ("other reason").
+
+As an example, when I did my first name change, I chose the "legal name on birth certificate" option. If I changed my name again, but didn't have my birth certificate amended to reflect my first legal name change in the meantime, I would choose the "other reason" option.
+
+In the "due to the following reasons" box, I didn't have an issue including "gender identity." If you don't wish to out yourself in that particular way, "common usage" or "this is the name I usually am known by" are perfectly fine things to write too.
 
 After filling the form, it needs to be notarized. Many banks offer notary services; Redstone FCU offers theirs for free for members. The notary needs to watch you sign and date the document, and only needs to notarize the page with the notary declaration. The background check authorization only needs to be signed by you.
 
@@ -97,7 +105,7 @@ I have health insurance through an employer-based plan with Blue Cross Blue Shie
 
 ## Changing your name with the FCC
 
-I have an amateur radio license, so I needed to do this. You probably don't.
+I have an amateur radio license, so I needed to do this. You probably don't. If you do have a radio license to update, note that your old name will be forever visible in the "Trans Log" in ULS (how fitting).
 
 I submitted an Administrative Update application in ULS online filing. Make sure to include a copy of the court order as a "Confidentiality" attachment. It will not be made publicly available if "Confidentiality" is the selected attachment type in ULS.
 
