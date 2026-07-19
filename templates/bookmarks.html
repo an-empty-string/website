@@ -25,6 +25,14 @@
 </ul>
 {% endmacro %}
 
+{% set cats = [
+    ("pubs", "publications", "cool blogposts/papers/articles/publications"),
+    ("recipe", "recipes", "recipes"),
+    ("music", "music", "music"),
+    ("data", "data/maps", "data/maps/mapping tools"),
+    ("misc", "random", "random other stuff"),
+] %}
+
 {% block header %}
 <span><a href="/">tris.fyi</a> &gt; bookmarks</span>
 <h1>bookmarks</h1>

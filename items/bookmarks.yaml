@@ -161,7 +161,7 @@ items:
 
   - created: 2025-05-17
     title: Vegetarian tortilla soup
-    url: https://www.recipetineats.com/chicken-and-rice-soup/
+    url: https://cookieandkate.com/vegetarian-tortilla-soup/
     text: "<>, uses black beans instead of chicken"
     tags: [ recipe, soup, main-dish ]
 
@@ -589,4 +589,52 @@ items:
     url: https://www.persuasion.community/p/the-problem-with-effective-altruism
     text: "<> --- not sure I totally agree (I tend to think we should hold ourselves accountable to our local community first and above almost all else), but an interesting read!"
     tags: [ misc ]
+
+  - created: 2026-01-03
+    title: Cantus Index
+    url: https://cantusindex.org/
+    text: "<>"
+    tags: [ misc ]
+
+  - created: 2026-02-16
+    author: Central Council of Church Bell Ringers
+    title: Dove's Guide for Church Bell Ringers
+    url: https://dove.cccbr.org.uk/dove?geo_region=16&bells=all&ringable=1&ring_type=english
+    text: "[Dove's Guide]() has a list of ringable change ringing towers in the US"
+    tags: [ misc, bells ]
+
+  - created: 2026-03-18
+    author: evy's writings on community living
+    title: dissenting from consensus
+    url: https://thoughtclippings.com/community-housing-blog/dissenting-from-consensus/
+    text: "<>"
+    tags: [ misc, governance ]
+
+  - created: 2026-05-23
+    author: Ad Artis Oy
+    title: Clues By Sam
+    url: https://cluesbysam.com/
+    text: "lately I find myself addicted to the daily logic puzzle game <>"
+    tags: [ misc, amusements ]
+
+  - created: 2026-05-23
+    title: Parseword
+    url: https://www.parseword.com
+    text: "<> is a fun cryptic puzzle game; I'm very bad at cryptics but the \"learn mode\" is quite helpful"
+    tags: [ misc, amusements ]
+
+  - created: 2026-06-08
+    author: Internal Revenue Service
+    title: Publication 15-T
+    url: https://www.irs.gov/publications/p15t
+    text: "<> tells you how to compute federal payroll tax withholding; look for 'Percentage Method Tables for Automated Payroll Systems' and 'Worksheet 1A'"
+    tags: [ misc, taxes ]
+
+  - created: 2026-06-08
+    author: Massachusetts Department of Revenue
+    title: Circular M
+    url: https://www.mass.gov/doc/massachusetts-circular-m-income-tax-withholding-tables-at-50-effective-january-1-2026/download
+    text: "<> tells you how to compute state payroll tax withholding in Massachusetts, including the weirdly complicated logic around FICA deductions"
+    tags: [ misc, taxes ]
+
   # }}}
