@@ -24,6 +24,11 @@ def bookmarks():
     return render_template("bookmarks.html")
 
 
+@app.route("/elect.html")
+def elect():
+    return render_template("elect.html")
+
+
 @app.route("/speedrun/")
 def speedrun():
     return render_template("speedrun.html")

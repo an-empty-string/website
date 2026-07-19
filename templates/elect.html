@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% set page_title = "Tris Wilson for NPEU Board" %}
+
+{% block head %}
+<style type="text/css">
+#intro {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .bogo {
+        flex: 1;
+        margin-right: 1em;
+
+        img {
+            max-width: 20vw;
+        }
+    }
+}
+
+@media(max-width: 800px) {
+    #intro {
+        flex-direction: column;
+
+        .bogo {
+            margin-right: 0;
+
+            order: 2;
+
+            img {
+                max-width: 100%;
+                max-height: 30vh;
+            }
+        }
+    }
+}
+</style>
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<section id="intro">
+    <div class="bogo">
+        <img src="/static/tris-in-real.jpg" />
+    </div>
+
+    <div class="info">
+        <h1>
+            <span id="name">Tris Wilson</span>
+            <span id="position">for NPEU Board</span>
+        </h1>
+
+        <p>Hey y'all! I'm Tris (<a href="https://pronoun.is/she" target="_blank">she</a>), and I'm running for NPEU Board (as an at-large member) to continue working on improvements to <strong>transparency, democratic participation, and good governance</strong> in our union.</p>
+
+        <p>Read on to learn more about me, my history with our union, and what I'd like to do if elected. I hope to earn your vote in the board election <strong>this July 20&ndash;24!</strong> If you have any questions, my door is always open; send me an email at <a href="mailto:npeu@tris.fyi">npeu@tris.fyi</a>.</p>
+    </div>
+</section>
+
+<section id="history">
+    <h2>My history with NPEU</h2>
+    <p>I became a member of NPEU in early 2022, when I joined Action Squared (the folks behind <a href="https://actionnetwork.org" target="_blank">Action Network</a> and <a href="https://actionbuilder.org" target="_blank">Action Builder</a>) doing computer infrastructure work. Since mid-2022, I've been committed to improving our union's infrastructure, too:</p>
+    <ul>
+        <li>I've been a steward at Action Squared since July 2022. In that capacity, I helped bargain our first successor contract in the fall of 2023, and will serve on the bargaining committee again this fall.</li>
+        <li>I've been Action Squared's executive board rep since July 2024. On the executive board, I led a nearly year-long process to build consensus around meeting procedure, culminating in a unanimous vote for a standing rules package that balanced members' rights with the constraints needed for a large, distributed governing body to operate efficiently.</li>
+        <li>I served on the 2025&ndash;2026 Bylaws Committee. Here, I worked with the rest of the committee to build a proposal for a governance structure that will scale with our union as we continue to grow rapidly. I'm particularly proud of my work on board meeting transparency and engagement: I wrote the bulk of Article 6, Section 4 (making agendas available to, and encouraging participation from, individual unit leaders) which I hope will encourage cross-unit engagement even after we transition to this new board structure.</li>
+    </ul>
+
+    <p>I really cannot imagine what my organization would look like without NPEU representation. Our ability to collectively bargain has made a real difference in our pay, benefits, and working conditions. Our staff have been instrumental in helping us bargain and represent our members. And our officers do an incredible job coordinating everything that keeps the union running day-to-day.</p>
+    <p>I'd love to have the opportunity to keep giving back to the union that has supported me and my coworkers so well, by continuing to work on infrastructure that supports all of us!</p>
+</section>
+
+<section id="plans">
+    <h2>What I'll do if elected</h2>
+    <p>I'd love to continue my work on improving our governance structures and transparency. And, as we continue growing our union, I want to ensure those structures remain sustainable and democratic. To that end, if elected, I'll&hellip;</p>
+    <ul>
+        <li>push for increased staff capacity for representational issues and new organizing, as our budget allows for it.</li>
+        <li>continue building structures that encourage more participation from rank-and-file members of our union. In particular, I'm interested in exploring systems like a membership or stewards assembly as a check on the board's power.</li>
+        <li>seek appointment to the newly formed Finance and Administration committee to understand and shape the context that this work will happen in.</li>
+    </ul>
+    <p>I'll also work to uplift the needs of small units to the board, as a small unit leader myself. :)</p>
+</section>
+
+<section id="about-me">
+    <h2>A little more about me</h2>
+    <p>I do have a life outside of my day job and union work! If you're trying to get a sense of who I am, you may find it interesting that I&hellip;</p>
+    <ul>
+        <li>work on state politics with the <a target="_blank" href="https://altrac.works/">Alabama Trans Rights Action Coalition</a></li>
+        <li>take <a target="_blank" href="https://glass.photo/tris">photos</a> occasionally</li>
+        <li>read <a target="_blank" href="https://app.thestorygraph.com/profile/trisw">lots of books</a> (send me science fiction/fantasy recs?)</li>
+        <li>am learning to <a target="_blank" href="https://www.nagcr.org/#what-is-change-ringing">ring bells</a></li>
+    </ul>
+</section>
+{% endblock %}
