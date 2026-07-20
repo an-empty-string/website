@@ -2,6 +2,7 @@
 title: thoughts about gender
 summary: some thoughts about gender and my sense of self
 posted_on: 2025-07-13
+updated_on: 2026-07-19
 show_toc: false
 featured: true
 ---
@@ -16,7 +17,7 @@ That does not match my experience at all!
 
 I have known something was up with my gender, but not exactly what, for a long time (9 years at time of writing). But, I didn't have the means to do anything about it for a while. I did not reflect on this at length. I just started doing stuff that felt like it might help my gender dysphoria, at the time when it felt necessary.
 
-Changing my name and pronouns helped (at different times), HRT helped, clothes didn't help much but they can be fun to play with, and so on. I'm growing out of this mindset; if I kept doing this forever, I'd probably never get bottom surgery.
+Changing my name and pronouns helped (at different times), HRT helped, clothes didn't help much but they can be fun to play with, and so on. I've since grown out of this mindset --- if I'd kept doing this forever, I'd never have [had bottom surgery](./bottom-surgery.html).
 
 Practically speaking, I don't have an independently grounded sense of gender identity. I know I like being called "she," my brain works way better on estrogen than it ever did without (this has easily been the most important piece for me), and HRT's physical effects have made me pretty happy thus far. These are pretty normal things for women in our society, even if they manifest a little differently, so I'm comfortable calling myself, and being, a woman.
 
