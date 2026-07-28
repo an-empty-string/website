@@ -34,47 +34,28 @@ def speedrun():
     return render_template("speedrun.html")
 
 
-Post = collections.namedtuple("Post", ["slug", "meta", "content"])
-
-
+# Blog rendering
 def all_posts(include_private=False):
-    posts = []
+    posts = items.find_items("post", order_by="posted_on")[::-1]
 
-    for post_dir, _, post_filenames in os.walk("posts", followlinks=True):
-        for post in post_filenames:
-            if not post.endswith(".md"):
-                continue
+    if not include_private:
+        posts = [p for p in posts if "private_uuid" not in p]
 
-            slug = post.removesuffix(".md")
-            with open(os.path.join(post_dir, post)) as f:
-                content = f.read()
-                _, raw_meta, post_content = content.split("---\n", maxsplit=2)
-                meta = yaml.safe_load(raw_meta)
-
-                if "slug" in meta:
-                    slug = meta["slug"]
-
-                if not include_private and "private_uuid" in meta:
-                    continue
-
-                posts.append(Post(slug, meta, post_content))
-
-    posts.sort(key=lambda pm: pm[1]["posted_on"], reverse=True)
     return posts
 
 
 def get_post_by_slug(slug):
     posts = all_posts(include_private=True)
-    for post in posts:
-        if post.slug == slug:
-            return post
+    for p in posts:
+        if p["slug"] == slug:
+            return p
 
 
 @app.route("/blog/")
 @app.route("/blog/index.html")
 def blog():
     posts = all_posts()
-    posts = itertools.groupby(posts, key=lambda pm: pm.meta["posted_on"].year)
+    posts = itertools.groupby(posts, key=lambda p: p["posted_on"].year)
     return render_template("blog.html", posts=posts)
 
 
@@ -86,38 +67,6 @@ def rss():
     return resp, {"Content-Type": "text/plain"}
 
 
-def render_markdown(text):
-    md = markdown.Markdown(
-        extensions=[
-            "fenced_code",
-            "codehilite",
-            "toc",
-            "pymdownx.blocks.details",
-            "pymdownx.blocks.html",
-            "pymdownx.emoji",
-        ]
-    )
-
-    lines = text.split("\n")
-    in_code_block = False
-    transformed_lines = []
-
-    for line in lines:
-        if line.startswith("```"):
-            in_code_block = not in_code_block
-
-        line = line.replace(" --- ", " &mdash; ")
-
-        if not in_code_block:
-            line = line.replace("...", "&hellip;")
-
-        transformed_lines.append(line)
-
-    text = "\n".join(transformed_lines)
-
-    return md, md.convert(text)
-
-
 @app.route("/blog/<slug>.html")
 @app.route("/blog/<slug>/<private_uuid>.html")
 def post(slug, private_uuid=None):
@@ -125,25 +74,24 @@ def post(slug, private_uuid=None):
     if post_data is None:
         abort(404)
 
-    _, meta, post = post_data
+    if post_data.get("private_uuid") != private_uuid:
+        abort(404)
 
-    olen = len(post)
+    html_post = post_data.pop("html_content")
+    toc = getattr(post_data.pop("html_renderer"), "toc", None)
 
-    post = post.replace(" [!", '<span class="sidenote"><small>')
-    post = post.replace("!]", "</small></span>")
-
-    has_sidenotes = len(post) != olen
+    has_sidenotes = '<span class="sidenote">' in html_post
 
     if not os.getenv("LOCAL"):
-        post = post.replace("/static/blog/", "https://cdn.tris.fyi/static/blog/")
-
-    md, html_post = render_markdown(post)
+        html_post = html_post.replace(
+            "/static/blog/", "https://cdn.tris.fyi/static/blog/"
+        )
 
     return render_template(
         "post.html",
-        meta=meta,
+        meta=post_data,
         post=html_post,
-        toc=getattr(md, "toc", None),
+        toc=toc,
         has_sidenotes=has_sidenotes,
     )
 
@@ -161,7 +109,7 @@ def render_markdown_with_link_shorthand(text, item):
     text = text.replace("[]", f"[{item_title}]")
     text = text.replace("()", f"({item['url']})")
 
-    _, html = render_markdown(text)
+    _, html = items.render_markdown(text)
 
     html = html.removeprefix("<p>").removesuffix("</p>")
     return html
