@@ -39,9 +39,9 @@
 
     <h2>from the blog</h2>
     <ul class="list-margins nobullet">
-        {% for slug, post, _ in posts if post.published|default(true) and not (post.hide_from_homepage|default(false)) %}
+        {% for post in posts if post.published|default(true) and not (post.hide_from_homepage|default(false)) %}
         {% if loop.index <= 3 or post.featured %}
-        <li><strong>{{ post.posted_on.strftime("%b %d '%y") }}:</strong> <a href="{{ url_for('post', slug=slug) }}">{{ post.title }}</a></li>
+        <li><strong>{{ post.posted_on.strftime("%b %d '%y") }}:</strong> <a href="{{ url_for('post', slug=post.slug) }}">{{ post.title }}</a></li>
         {% endif %}
         {% endfor %}
         <li><a href="/blog/">check out all the posts here!</a></li>
