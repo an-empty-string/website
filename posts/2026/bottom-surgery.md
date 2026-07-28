@@ -62,7 +62,7 @@ About a week before surgery, you'll get a phone call from pre-admission testing 
 
 ...were strangely calm. The Easter liturgies really helped. I leaned into the rebirth narrative and applied it to what I was about to experience, perhaps too much. Saturday night we got "celebratory pizza" from Pino's in Cleveland Circle; it was great.
 
-Sunday afternoon I was asked to eat only a light lunch (one slice of pizza), and Sunday evening I was asked to not eat anything at all. I did bowel prep with magnesium citrate (liquid form) to help avoid post-op constipation, and washed with hibiclens soap the night before and the morning off to help prevent bacterial infections. Ironically, I cut my finger on the hibiclens soap container twice. Go figure.
+Sunday afternoon I was asked to eat only a light lunch (one slice of pizza), and Sunday evening I was asked to not eat anything at all. I did bowel prep with magnesium citrate (liquid form) to help avoid post-op constipation, and washed with hibiclens soap the night before and the morning of to help prevent bacterial infections. Ironically, I cut my finger on the hibiclens soap container twice. Go figure.
 
 The morning of surgery, we arrived just after 6am. Check-in was straightforward and I wasn't billed for anything on the spot. I was called up at around 6:15am; my partner was called up very soon after. We gave the hospital staff her phone number; they called her with updates when surgery was finished and when I made it to an inpatient room. I'm told there was also a screen in the waiting area with folks' statuses she could look at too; she got a little index card with a patient ID number for that screen.
 
@@ -104,7 +104,7 @@ If you're like me, you sometimes beat yourself up about food waste. Not to worry
 
 Here is a tier list of BIDMC hospital food:
 
-* **A Tier**: Most main dishes. Turkey, pasta + metaballs were great. Everything in this column on the menu they seem to make to order, and they bring it up on this heavy covered plate, so it's less likely to be cold when it arrives.
+* **A Tier**: Most main dishes. Turkey, pasta + meatballs were great. Everything in this column on the menu they seem to make to order, and they bring it up on this heavy covered plate, so it's less likely to be cold when it arrives.
 * **B Tier**: Most sandwich fixings. (Pro tip: You can order sandwich components without bread.)
 * **C Tier**: Soups and oatmeal. Serviceable, but a little cold by the time they got to me, and not anywhere near as good as I make 'em at home.
 * **D Tier**: Cheddar cheese. I don't understand what happened here.
@@ -118,7 +118,7 @@ The next day and night (Tuesday) I was expected to stay in bed the whole time. C
 
 Wednesday was when things got rough! I started having pretty bad nausea that anti-nausea meds didn't help with, which meant I wasn't eating much (and was having trouble keeping food down, when I was able to eat). This also meant I had some issues taking medications. The nurses will crush pills and/or get you some applesauce if you ask; this helped a lot.
 
-One of the night nurses (thank you Sandy, you are so cool) figured out the nausea this was likely a side effect of the narcotic pain medication I was prescribed. I'm still not sure if this was the true root cause, but we switched to another medication and I was mostly able to avoid narcotics at this point anyway, and things eventually got better.
+One of the night nurses (thank you Sandy, you are so cool) figured out the nausea was likely a side effect of the narcotic pain medication I was prescribed. I'm still not sure if this was the true root cause, but we switched to another medication and I was mostly able to avoid narcotics at this point anyway, and things eventually got better.
 
 I was also under a lot of stress that day! Urology wanted to discharge me that afternoon, and I felt a little pressure to try to make that happen. I was barely able to walk; between that and the nausea, leaving that day was just not plausible. I was a bit of an emotional mess from everything going on and had a hard time advocating for myself as a result; my partner helped immensely here.
 

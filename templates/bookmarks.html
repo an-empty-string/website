@@ -3,7 +3,7 @@
 {% set page_description = "tris's public bookmarks list, with links to stuff she finds useful and/or interesting" %}
 
 {% macro render_bookmark(item) %}
-<li>
+<li data-title="{{ item.title.lower().replace(' ', '') }}">
     {{ render_markdown_with_link_shorthand(item.text, item)|safe }}
     <br />
     <span class="item-meta">
@@ -47,6 +47,10 @@
 </nav>
 <div class="flex-row">
     <input type="text" id="search" placeholder="search bookmarks... (requires javascript)" autofocus />
+</div>
+
+<div>
+    <small><em>helpful hint!</em> go.tris.fyi/anything will take you there &mdash; try e.g. /redbeans, /cornbread, /owltowel</small>
 </div>
 
 <section id="pubs">
@@ -95,6 +99,45 @@
     }
     rehighlight();
     window.addEventListener("hashchange", rehighlight);
+
+    function findByTitleData(needle) {
+        var bestScore = 9999;
+        var bestUrl = null;
+        document.querySelectorAll("li[data-title]").forEach((li) => {
+            const title = li.getAttribute("data-title");
+            const url = li.querySelector("a").getAttribute("href");
+
+            if(title === needle) {
+                bestUrl = url;
+                bestScore = -9999;
+            }
+
+            // check if subsequence
+            var y = 0;
+            var skipped = 0;
+            for(var x = 0; x <= title.length; ++x) {
+                if(y >= needle.length) {
+                    // yes it's a subsequence
+                    console.log(skipped, url);
+                    if(skipped < bestScore) {
+                        bestScore = skipped;
+                        bestUrl = url;
+                    }
+
+                    break;
+                }
+
+                if(needle[y] === title[x]) {
+                    ++y;
+                    continue
+                }
+
+                if(y > 0) ++skipped;
+            }
+        });
+
+        return bestUrl;
+    }
 
     function textMatch(needle, haystack) {
         var words = needle.split(" ");
@@ -154,5 +197,8 @@
 
     searchBox.value = "";
     searchBox.focus();
+
+    const query = location.href.split("?")[1];
+    if(query) { location.href = findByTitleData(query); }
 </script>
 {% endblock %}

@@ -2,7 +2,7 @@
 title: Changing your legal name in Madison&nbsp;County, Alabama
 summary: A detailed how-to guide on changing your legal name in Madison County, based on my experiences in September 2020 and kept up to date with feedback from the local trans community.
 posted_on: 2020-10-17
-updated_on: 2026-02-01
+updated_on: 2026-07-22
 ---
 
 This is how I changed my legal name in Madison County, AL. The process is definitely different elsewhere.
@@ -33,11 +33,15 @@ After filling the form, it needs to be notarized. Many banks offer notary servic
 
 While I was at the bank I also got an official check to pay the filing fee ($37 at time of writing).
 
-With the notarized petition in hand, I went to the courthouse. I also brought a photo ID (my drivers' license) and a certified copy of my birth certificate. You may be asked for proof of Madison County residency if your photo ID doesn't have your address on it. The probate court operates out of the Madison County Service Center at 1918 Memorial Parkway NW. They are open from 8:30a to 4:30p on weekdays. One of the clerks made a photocopy of my license and birth certificate (they did not need to keep the original birth certificate, this seems to be the norm, you should be able to ask for it back if they do try to keep it) and kept the petition + filing fee check. My name change was not set for hearing (this seems to be the norm).
+With the notarized petition in hand, I went to the courthouse. I also brought a photo ID (my drivers' license) and a certified copy of my birth certificate.
+
+The probate court operates out of the Madison County Service Center at 1918 Memorial Parkway NW. They are open from 8:30a to 4:30p on weekdays. There is a metal detector at the entrance, so be sure to leave multitools/pocketknives in the car or at home. Usually, seeing a probate court clerk should be pretty quick; it's not uncommon to be in and out in less than 15 minutes. (The building may look busy, but it's mostly folks there for drivers' license issues/updates!)
+
+One of the clerks made a photocopy of my license and birth certificate (they did not need to keep the original birth certificate, this seems to be the norm, you should be able to ask for it back if they do try to keep it) and kept the petition + filing fee check. My name change was not set for hearing (this seems to be the norm). You may be asked for proof of Madison County residency if your photo ID doesn't have your address on it. 
 
 Less than two weeks later I got three certified copies of the order in the mail. I took a picture of one for reference, but you should only need the case number to get more certified copies.
 
-As of 2022, a few folks have mentioned that this process seems to be taking longer, so if you don't receive your name change order in the mail after a few weeks, don't worry. If your petition is rejected you should receive a letter explaining why (although this is very rare and usually only happens if there are issues completing the background check).
+As of July 2026, it takes 2-3 weeks to get court orders in the mail. But if you don't receive your name change order in the mail after a few weeks, don't worry. If your petition is rejected you should receive a letter explaining why (this is very rare and usually only happens if there are issues completing the background check).
 
 ## Changing your name with SSA
 
