@@ -133,7 +133,7 @@ def collect_items(path="items", assign_ids=True, assign_type=None) -> list[dict]
 
     if assign_type:
         for item in items:
-            item["type"] = "post"
+            item["type"] = assign_type
 
     return items
 
@@ -142,7 +142,7 @@ def collect_all_items():
     return collect_items() + collect_items("posts", assign_type="post")
 
 
-def find_items(typ, tags=None, order_by="order"):
+def find_items(typ, tags=None, order_by="order", only_these_keys=None):
     if tags is None:
         tags = []
 
@@ -158,4 +158,8 @@ def find_items(typ, tags=None, order_by="order"):
         items.append(item)
 
     items.sort(key=operator.itemgetter(order_by))
+
+    if only_these_keys:
+        items = [{k: v for k, v in x.items() if k in only_these_keys} for x in items]
+
     return items

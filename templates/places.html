@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% set page_title = "Places I've been" %}
+
+{% block head %}
+<link rel="stylesheet" 
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""/>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+
+<script>
+    const places = {{
+        find_items("place", only_these_keys=[
+            "id", "created", "name", "address", "location", "html_content",
+        ]) | tojson
+    }};
+</script>
+
+<style>
+#map {
+    height: 90vh;
+}
+</style>
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<div id="map"></div>
+<script>
+    var map = L.map('map');
+    map.setView([0, 0], 13);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    for(const place of places) {
+        L.marker(place.location).addTo(map);
+    }
+</script>
+{% endblock %}

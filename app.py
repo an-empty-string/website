@@ -2,11 +2,10 @@ import collections
 import itertools
 import os
 
+import items
 import markdown
 import yaml
 from flask import Flask, abort, render_template
-
-import items
 
 app = Flask(__name__)
 if not os.getenv("LOCAL"):
@@ -94,6 +93,11 @@ def post(slug, private_uuid=None):
         toc=toc,
         has_sidenotes=has_sidenotes,
     )
+
+
+@app.route("/places/")
+def places():
+    return render_template("places.html")
 
 
 # items framework {{{
