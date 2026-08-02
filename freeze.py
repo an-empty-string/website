@@ -7,12 +7,12 @@ freezer = Freezer(app)
 
 @freezer.register_generator
 def post():
-    for slug, meta, _ in all_posts(True):
-        if "private_uuid" in meta:
-            yield {"slug": slug, "private_uuid": meta["private_uuid"]}
+    for post in all_posts(True):
+        if "private_uuid" in post:
+            yield {"slug": post["slug"], "private_uuid": post["private_uuid"]}
 
         else:
-            yield {"slug": slug}
+            yield {"slug": post["slug"]}
 
 
 if __name__ == "__main__":

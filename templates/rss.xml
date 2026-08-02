@@ -8,12 +8,12 @@
         <generator>Tris's Website Generator</generator>
         <webMaster>blog@tris.fyi (Tris Emmy Wilson)</webMaster>
 
-        {% for slug, meta, _ in posts if meta.published|default(true) and (not meta.hidden|default(false)) %}
+        {% for post in posts if post.published|default(true) and (not post.hidden|default(false)) %}
         <item>
-            <title>{{ meta.title }}{% if meta.subtitle %}: {{ meta.subtitle }}{% endif %}</title>
-            <link>{{ url_for("post", slug=slug, _external=True, _scheme="https") }}</link>
-            {% if meta.summary %}<description>{{ meta.summary }}</description>{% endif %}
-            <pubDate>{{ meta.posted_on.strftime("%a, %d %b %Y %T GMT") }}</pubDate>
+            <title>{{ post.title }}{% if post.subtitle %}: {{ post.subtitle }}{% endif %}</title>
+            <link>{{ url_for("post", slug=post.slug, _external=True, _scheme="https") }}</link>
+            {% if post.summary %}<description>{{ post.summary }}</description>{% endif %}
+            <pubDate>{{ post.posted_on.strftime("%a, %d %b %Y %T GMT") }}</pubDate>
         </item>
         {% endfor %}
     </channel>
