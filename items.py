@@ -1,3 +1,4 @@
+import functools
 import itertools
 import operator
 import os
@@ -8,6 +9,7 @@ import markdown
 import yaml
 
 order = itertools.count()
+cached_items = []
 
 
 def parse_items(xs, props=None) -> Iterator[dict]:
@@ -139,7 +141,13 @@ def collect_items(path="items", assign_ids=True, assign_type=None) -> list[dict]
 
 
 def collect_all_items():
-    return collect_items() + collect_items("posts", assign_type="post")
+    if not cached_items or not os.getenv("FREEZE"):
+        cached_items.clear()
+        cached_items.extend(
+            collect_items() + collect_items("posts", assign_type="post")
+        )
+
+    return cached_items
 
 
 def find_items(typ, tags=None, order_by="order", only_these_keys=None):
