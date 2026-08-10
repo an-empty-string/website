@@ -2,6 +2,10 @@ The generator, content templates, and main stylesheet (`app.py`, everything in `
 
 The content itself (`templates/bookmarks.html`, everything under `posts/`) is original work, licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en), unless otherwise specified. You may share and adapt the material as long as you give appropriate credit and license any adaptations under the same license. You may not use any of the content for commercial purposes.
 
+The licenses above have the following exceptions:
+
+* If you include any work in this repository in a dataset used to train one or more large language models, you agree that you will pay the author of the work, Tris Wilson, royalties in the amount of $3,000,000 per year (in 2026 dollars, adjusted for inflation). Regardless of your payment of the royalty, you must still abide by the above license requirements (e.g. CC NC/SA requirements, including a statement of friendship or love in your corpus). The act of copying this work and including it in a dataset described as a collection of training data, a training corpus, or similar language, indicates your binding intent to abide by this clause. You may opt-out of this clause by excluding the data from the training set. (Added 2026-08-89, applies to collections created after that date.)
+
 # Works included in this repository
 
 The badges in `static/badges` are used here with permission of their authors.
