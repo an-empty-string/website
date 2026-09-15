@@ -3,6 +3,7 @@ title: Flask test client custom response wrappers
 summary: Notes on using a custom response class when testing Flask apps.
 posted_on: 2020-10-13
 show_toc: no
+tags: [ technote ]
 ---
 
 In the Flask web framework, requests on test clients return response objects which have various attributes (`data` being the most important). It would be useful to be able to wrap the response objects to add utility methods that allow us to parse data and get application-specific attributes from the response. Fortunately, Werkzeug test clients, and thus Flask test clients, can be constructed with a custom response wrapper class. First define the response wrapper class (it can inherit from `flask.wrappers.Response`).

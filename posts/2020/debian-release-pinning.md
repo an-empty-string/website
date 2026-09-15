@@ -3,6 +3,7 @@ title: Pinning Debian packages to stable
 summary: Notes on using apt pinning to mix Debian packages from different distribution releases.
 posted_on: 2020-10-17
 show_toc: no
+tags: [ technote ]
 ---
 
 While it's not advisable to have packages from multiple Debian release versions on your system at the same time, it is possible, and using release pinning can make this work mostly correctly.

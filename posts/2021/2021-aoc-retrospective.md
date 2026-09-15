@@ -2,6 +2,7 @@
 title: 2021 Advent of Code retrospective
 summary: "Musings on the 2021 Advent of Code event: how I played, what I thought about the puzzles, my plans for 2022."
 posted_on: 2021-12-24
+tags: [ engineering ]
 ---
 
 This year, I participated in Eric Wastl's [Advent of Code](https://adventofcode.com), as I have done in past years. I had a lot of fun and will definitely play again in the next event. This post is about lessons I learned this year and what I would like to differently next year.

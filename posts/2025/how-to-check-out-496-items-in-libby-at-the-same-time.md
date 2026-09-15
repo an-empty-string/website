@@ -3,6 +3,7 @@ title: How to check out 496 ebooks in Libby at the same time
 subtitle: (if you live in Massachusetts)
 posted_on: 2025-03-24
 show_toc: false
+tags: [ fun ]
 ---
 
 I learned recently that the Boston Public Library is in a consortium with several other libraries in Massachusetts, including:

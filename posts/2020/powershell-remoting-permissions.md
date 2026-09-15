@@ -2,6 +2,7 @@
 title: How to change PowerShell remoting permissions
 posted_on: 2020-10-23
 show_toc: no
+tags: [ technote ]
 ---
 
 ```powershell

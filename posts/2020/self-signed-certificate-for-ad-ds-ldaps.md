@@ -3,6 +3,7 @@ title: Self-signed certificate for AD DS LDAPS
 summary: Notes on using a self-signed certificate for TLS-secured LDAP on an Active Directory domain controller.
 posted_on: 2020-10-14
 show_toc: no
+tags: [ technote ]
 ---
 
 Sometimes you need to talk to Active Directory Domain Services using a secure LDAP connection but you're okay with using a self-signed certificate (in my case, I have a set of internal tools which can be told not to validate certificates, but enforces TLS; I use these internal tools before deploying Certificate Services and a trusted certificate). Here is how to do it.

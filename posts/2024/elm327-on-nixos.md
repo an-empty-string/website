@@ -2,6 +2,7 @@
 title: Using an ELM327 OBD-II interface on NixOS
 posted_on: 2024-02-10
 show_toc: no
+tags: [ guide, technote ]
 ---
 
 In `configuration.nix` or equivalent, enable legacy compatibility mode in `bluetoothd`:

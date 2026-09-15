@@ -3,6 +3,7 @@ title: Huntsville local government-related project starmap
 summary: A list of projects I was once working on to keep track of Huntsville local government.
 posted_on: 2022-09-19
 updated_on: 2023-12-19
+tags: [ tools ]
 ---
 
 This page lists long-term projects that are related to my Huntsville, AL government work (policy advocacy, transparency, or anything else). Since I don't live in Huntsville anymore, a lot of these projects are on hold indefinitely, but if you're interested in further details about any of these projects (because you want to try them yourself, or otherwise), please reach out!

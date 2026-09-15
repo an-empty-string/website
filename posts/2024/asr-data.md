@@ -4,6 +4,7 @@ subtitle: a tool for making FCC Antenna Structure Registration data usable
 summary: how to plot nearly every antenna structure in the US on a map in (n) easy steps!
 posted_on: 2024-03-18
 show_toc: false
+tags: [ tools ]
 ---
 
 Have you ever wanted to know who owns that tower near your apartment building? Or have you ever thought "wow, I sure wish I could visit a cool antenna structure near me this weekend"?

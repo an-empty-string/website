@@ -2,6 +2,7 @@
 title: Desaturating the desktop (grayscale mode) with Sway
 posted_on: 2025-03-23
 show_toc: false
+tags: [ technote, guide ]
 ---
 
 Like [a few other folks](https://www.reddit.com/r/swaywm/comments/ffc7mv/setting_sway_grayscale_monochromatic/), I use the computer much more easily when there are not bright colors involved. Some Wayland desktop environments, like GNOME, support [extensions to do this](https://askubuntu.com/a/1013262). This is great, but I have a strong preference for using a tiling window manager for a number of reasons.

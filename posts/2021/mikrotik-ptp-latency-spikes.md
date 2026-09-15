@@ -3,6 +3,7 @@ title: MikroTik point-to-point link packet loss and latency spikes
 summary: "Why your 802.11 point-to-point link with a MikroTik device as client breaks periodically and how to fix it."
 posted_on: 2021-01-19
 show_toc: no
+tags: [ technote ]
 ---
 
 At home, I run a pair of SXTsq 5 ac devices to span my network to a place where

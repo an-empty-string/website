@@ -9,17 +9,63 @@
 <span><a href="/">tris.fyi</a></span> &gt; blog
 <h1>Blog posts</h1>
 <p>now available <a href="{{ url_for("rss") }}">as an RSS feed!</a></p>
+<div id="tags">
+    <span class="tag active"><a href="#">view all posts!</a></span> or just posts tagged with
+    {% for tag in all_tags %}
+    <span class="tag"><a href="#{{ tag }}">#{{ tag }}</a></span>
+    {% endfor %}
+</div>
 {% endblock %}
 
 {% block content %}
 {% for year, year_posts in posts %}
-<h2>{{ year }}</h2>
-<ul class="mediummargins nobullet">
-    {% for post in year_posts if post.published|default(true) and (not post.hidden|default(false)) %}
-    <li>
-        <a href="{{ url_for("post", slug=post.slug) }}"><strong>{{ post.posted_on.strftime("%B %d") }}:</strong> {{ post.title|safe }}{% if post.subtitle %}: {{ post.subtitle|safe }}{% endif %}</a>
-    </li>
-    {% endfor %}
-</ul>
+<section>
+    <h2>{{ year }}</h2>
+    <ul class="mediummargins nobullet">
+        {% for post in year_posts if post.published|default(true) and (not post.hidden|default(false)) %}
+        <li class="post" data-tags="{{ ';'.join(post.tags or []) }}">
+            <a href="{{ url_for("post", slug=post.slug) }}">
+                <strong>{{ post.posted_on.strftime("%B %d") }}:</strong>
+                {{ post.title|safe }}{% if post.subtitle %}: {{ post.subtitle|safe }}{% endif %}</a>
+
+            {% if post.tags %}
+            {% for tag in post.tags %}
+            <span class="tag"><a href="#{{ tag }}">#{{ tag }}</a></span>
+            {% endfor %}
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</section>
 {% endfor %}
+
+<script>
+    function searchPosts() {
+        const tag = location.hash.slice(1);
+
+        document.querySelectorAll("section").forEach((sec) => {
+            var hasActivePost = false;
+
+            sec.querySelectorAll("li.post").forEach((post) => {
+                if(tag === "" || post.getAttribute("data-tags").split(";").indexOf(tag) >= 0) {
+                    hasActivePost = true;
+                    post.style.display = "list-item";
+                }
+                else post.style.display = "none";
+            });
+
+            if(hasActivePost) sec.style.display = "block";
+            else sec.style.display = "none";
+        });
+
+        document.querySelectorAll(".tag a").forEach((link) => {
+            console.log(link.href.split("#")[1] === tag)
+            if(link.href.split("#")[1] === tag) link.parentElement.classList.add("active");
+            else link.parentElement.classList.remove("active");
+        });
+    }
+
+    window.addEventListener("hashchange", searchPosts);
+    searchPosts();
+</script>
 {% endblock %}

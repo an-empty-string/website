@@ -3,6 +3,7 @@ title: I was the bells
 posted_on: 2025-12-25
 show_toc: false
 featured: true
+tags: [ self, ringing ]
 ---
 
 There's a feeling you get when you're operating a machine, or an instrument, or anything else that's predictable, when you're really comfortable with it. I bet you know it. It's how you feel when you're driving a car or riding a bike (except without the hyper-vigilance you might associate with that), I think. It's the feeling you get when that thing becomes an extension of your body.

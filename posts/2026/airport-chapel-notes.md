@@ -3,6 +3,7 @@ title: Airport chapel notes
 posted_on: 2026-03-28
 show_toc: false
 featured: true
+tags: [ religion ]
 ---
 
 When I'm on a trip involving airplanes, if I have a long connection between flights, or arrive especially early to my first airport, I will check and see if there is a chapel around. Even if you are not religious, the quiet can be pretty nice.

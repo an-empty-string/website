@@ -1,6 +1,7 @@
 ---
 title: a Jambalaya recipe
 posted_on: 2024-05-23
+tags: [ recipe ]
 ---
 
 This is how I make jambalaya. It is probably pretty unsurprising. Makes about 4 servings (or 3 if folks are hungry).

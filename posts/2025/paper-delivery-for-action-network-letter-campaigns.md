@@ -3,6 +3,7 @@ title: How to deliver letters on paper for an Action Network letter campaign
 summary: Getting your supporters to send emails to legislators is great, but dropping paper on their desks can be even better! Here is a tool to help you do that.
 posted_on: 2025-03-04
 show_toc: false
+tags: [ tools ]
 ---
 
 At [ALTRAC](https://altrac.works) we run a lot of letter campaigns on [Action Network](https://actionnetwork.org). These let us write template letters that our supporters can send to their state legislators really easily &mdash; they enter their address, optionally add their own stories to our template letter (or rewrite it entirely), and Action Network does the rest (geocodes them to their districts, remembers those districts for next time, and sends emails to their legislators).

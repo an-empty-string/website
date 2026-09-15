@@ -67,9 +67,21 @@ ul.bookmarks > li {
 }
 
 span.tag {
-    font-size: 10pt;
+    font-size: 0.9rem;
+    padding: 0.1rem;
+    margin-right: 0.2rem;
     border: 1px solid grey;
+
+    &:not(.active) a {
+        color: #b16286;
+        font-weight: 800;
+    }
+    &.active {
+        background-color: #cee5e6;
+        a { text-decoration: none; }
+    }
 }
+
 
 .item-meta {
     font-size: 11pt;

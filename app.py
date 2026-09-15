@@ -2,10 +2,11 @@ import collections
 import itertools
 import os
 
-import items
 import markdown
 import yaml
 from flask import Flask, abort, render_template
+
+import items
 
 app = Flask(__name__)
 if not os.getenv("LOCAL"):
@@ -33,6 +34,16 @@ def speedrun():
     return render_template("speedrun.html")
 
 
+@app.route("/library/")
+def library():
+    return render_template("library.html")
+
+
+@app.route("/LIB/")
+def library_qr():
+    return render_template("library.html")
+
+
 # Blog rendering
 def all_posts(include_private=False):
     posts = items.find_items("post", order_by="posted_on")[::-1]
@@ -54,8 +65,14 @@ def get_post_by_slug(slug):
 @app.route("/blog/index.html")
 def blog():
     posts = all_posts()
+
+    all_tags = set()
+    for post in posts:
+        all_tags.update({t for t in post["tags"]})
+    all_tags = list(sorted(all_tags))
+
     posts = itertools.groupby(posts, key=lambda p: p["posted_on"].year)
-    return render_template("blog.html", posts=posts)
+    return render_template("blog.html", posts=posts, all_tags=all_tags)
 
 
 @app.route("/blog/rss.xml")
@@ -98,6 +115,13 @@ def post(slug, private_uuid=None):
 @app.route("/places/")
 def places():
     return render_template("places.html")
+
+
+@app.route("/places/<pid>.html")
+def place_by_id(pid):
+    place = items.find_item_by_id(pid)
+    present = place["present"]
+    return render_template(f"place/{present}.html", **place)
 
 
 # items framework {{{

@@ -3,6 +3,7 @@ title: Late April updates
 show_toc: true
 posted_on: 2025-04-26
 wide: true
+tags: [ self, books, recipe, religion ]
 ---
 
 Happy Easter y'all! (if you celebrate)

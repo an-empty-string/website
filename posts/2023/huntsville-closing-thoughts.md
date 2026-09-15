@@ -2,6 +2,7 @@
 title: closing thoughts (Huntsville)
 summary: a personal piece about moving away from the city I lived in for seven years
 posted_on: 2023-01-31
+tags: [ self ]
 ---
 
 i'm back to thinking about moving (and getting very very close to the "actually planning a move to a defined location" step) and getting anxious that i'm making the wrong decision again. the framing i'm finding useful to get over that feeling is this: does huntsville have anything left to teach me, and if so, what? what _has_ it taught me in the last seven years?

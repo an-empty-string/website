@@ -3,6 +3,7 @@ title: Changing your legal name in Madison&nbsp;County, Alabama
 summary: A detailed how-to guide on changing your legal name in Madison County, based on my experiences in September 2020 and kept up to date with feedback from the local trans community.
 posted_on: 2020-10-17
 updated_on: 2026-07-22
+tags: [ guide, gender ]
 ---
 
 This is how I changed my legal name in Madison County, AL. The process is definitely different elsewhere.

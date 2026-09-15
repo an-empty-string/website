@@ -2,6 +2,7 @@
 title: How I use Taskwarrior
 summary: Notes on my todo list workflow using Taskwarrior; future work.
 posted_on: 2022-08-25
+tags: [ tools ]
 ---
 
 [Taskwarrior](https://taskwarrior.org/) is a neat command-line task tracking tool; this page describes how I use the tool, with explanations of [my configuration](https://github.com/an-empty-string/home-config/blob/main/home/productivityTools.nix).

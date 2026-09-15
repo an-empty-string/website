@@ -3,6 +3,7 @@ title: Cycling in Alabama
 summary: References to a few Alabama Code sections and city ordinances that I find useful to have handy while cycling or planning a ride.
 posted_on: 2022-12-20
 show_toc: no
+tags: [ law, technote ]
 ---
 
 I try to ride a bicycle instead of driving whenever it's practical, but I like to follow the law precisely, especially given that Alabama uses pure "contributory negligence" to resolve court cases over injuries (this means that if a cyclist was hit by a car and the cyclist was found to be even 1% at fault, they could not recover damages). This page covers my notes on authority to operate a bicycle in Alabama and what our rights and responsibilities are on the road.

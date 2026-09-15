@@ -3,6 +3,7 @@ title: Polycom provisioning notes
 summary: Notes on the XML format used to provision Polycom phones.
 posted_on: 2021-06-21
 show_toc: no
+tags: [ technote ]
 ---
 
 Phones look at all attributes on any XML element in the provisioning file and collect them together to build their configuration. So these are equivalent:

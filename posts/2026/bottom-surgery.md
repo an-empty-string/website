@@ -2,6 +2,7 @@
 title: How to get bottom surgery in Boston, Massachusetts
 posted_on: 2026-07-19
 show_toc: true
+tags: [ self, gender ]
 ---
 
 As far back as I can remember, I've had symptoms of some sort of incongruence between my body's sex characteristics and my internal sense of self --- [gender dysphoria](https://genderdysphoria.fyi/). My experience with gender dysphoria has been [a little different than the textbook narrative](./thoughts-about-gender.html), but still, for the past decade or so, I've been taking measures to mitigate it. For many folks in my situation, this feels like a game of whack-a-mole: you address the worst source of dysphoria, things _do_ get markedly better, but in the process a different source of dysphoria becomes an issue.

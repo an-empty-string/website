@@ -1,6 +1,7 @@
 ---
 title: Books I have been reading
 posted_on: 2025-11-11
+tags: [ books ]
 ---
 
 I have been trying to read more lately, with varying degrees of success. Here are some (mostly enjoyable) books I've read lately.

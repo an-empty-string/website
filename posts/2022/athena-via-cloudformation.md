@@ -2,6 +2,7 @@
 title: Using CloudFormation to create Athena tables
 summary: The correct CloudFormation YAML incantations to get an S3 data source showing up in Amazon Athena (backed by AWS Glue).
 posted_on: 2022-11-07
+tags: [ technote ]
 ---
 
 ## Background

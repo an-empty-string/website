@@ -3,6 +3,7 @@ title: My Pomodoro tool
 summary: How to install and use my MQTT-based Pomodoro system.
 posted_on: 2021-04-09
 show_toc: no
+tags: [ tools, guide ]
 ---
 
 Back in February I wrote a [Pomodoro tool](https://gist.github.com/an-empty-string/a4706537cd9ffaf5f67d3f49a8540fea) which runs as a service on your own machine and communicates using MQTT. Here is how to use it:

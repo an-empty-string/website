@@ -2,6 +2,7 @@
 title: TPM2-backed SSH keys on NixOS
 summary: How to set up and use a hardware-backed SSH key tied to your system in a NixOS environment.
 posted_on: 2022-08-18
+tags: [ guide, technote ]
 ---
 
 ## Introduction

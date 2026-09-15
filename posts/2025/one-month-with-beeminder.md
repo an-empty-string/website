@@ -2,6 +2,7 @@
 title: One month with Beeminder
 posted_on: 2025-11-24
 show_toc: false
+tags: [ self, tools ]
 ---
 
 Other folks with executive function issues are perhaps familiar with the productivity system "novelty problem" --- you finally adopt a new tool, you do a brain dump into it, it feels great, and your life feels like it's on track for a few weeks. Then things start to stagnate: maybe your backlog becomes overwhelming, the system stops tracking reality, and you eventually stop trusting the system's ability to work for you.

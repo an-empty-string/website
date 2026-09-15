@@ -3,6 +3,7 @@ title: Debian, cloud-init, and Proxmox
 summary: Notes on making the Debian cloud images work in Proxmox.
 posted_on: 2021-04-15
 show_toc: no
+tags: [ technote ]
 ---
 
 The Debian OpenStack cloud images will work fine in Proxmox if you add a serial port to the VM (if you don't have a serial port, they won't boot properly).

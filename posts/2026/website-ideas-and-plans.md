@@ -3,6 +3,7 @@ title: cool tris.fyi facts
 posted_on: 2026-08-19
 show_toc: false
 featured: true
+tags: [ meta ]
 ---
 
 Did you know I have a website? I bet you did, given that you're reading this post. Sometimes I forget.

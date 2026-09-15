@@ -1,6 +1,7 @@
 ---
 title: a dinner rolls recipe
 posted_on: 2024-05-23
+tags: [ recipe ]
 ---
 
 Here is a recipe for dinner rolls. Note that it is very easy to accidentally kill the yeast here &mdash; the temperature ranges are pretty important. Also, if you have a stand mixer, it is not worth using for this recipe; hand mixing is somehow less effort (I have tried).

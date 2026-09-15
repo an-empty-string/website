@@ -3,6 +3,7 @@ title: Apps of all time
 posted_on: 2026-08-02
 show_toc: false
 featured: true
+tags: [ tools ]
 ---
 
 Here are some tools I find useful, or have found useful at some point in the past. I'll likely update this regularly as I think of more things.
@@ -15,14 +16,14 @@ Sometimes I have a CSV file, or a SQLite database, or a big JSON blob, or an Exc
 
 The tool I usually reach for is [VisiData](https://www.visidata.org/). VisiData lets you do a whole lot with tabular data, including:
 
-* Frequency tables and aggregation! For example, if I have a log file listing individual HTTP requests, each with a URL and processing time, I can use create a "sum" aggregator on the processing time column, then group by URL just by putting my cursor in the column and hitting "F". I almost immediately get a table of URLs with their total processing time. See [Grouping data and descriptive statistics from the VisiData docs](https://www.visidata.org/docs/group/) for more about this.
+* Frequency tables and aggregation! For example, if I have a log file listing individual HTTP requests, each with a URL and processing time, I can create a "sum" aggregator on the processing time column, then group by URL just by putting my cursor in the column and hitting "F". I almost immediately get a table of URLs with their total processing time. See [Grouping data and descriptive statistics from the VisiData docs](https://www.visidata.org/docs/group/) for more about this.
 * Creating new columns, with values coming from Python expressions operating on other columns - `=`. (So, it works like a traditional spreadsheet, too!)
 * [Graphing](https://www.visidata.org/docs/graph/) in the terminal!
 * Creating ad-hoc data processing pipelines using its [cmdlog](https://www.visidata.org/docs/save-restore/) functionality.
 
 ## Rowboat
 
-If I have a CSV file with a ton of columns, I'll throw it into [Rowboat](https://rowboat.net/) so I can visualize distributions of many columns at once. It also lets you do filtering by clicking and dragging over columns, which is really intuitive! It's written in something that compiles to WebAssembly, or something like that; it's ridiculously fast.
+If I have a CSV file with a ton of columns, I'll throw it into [Rowboat](https://rowboat.net/) so I can visualize distributions of many columns at once. It also lets you do filtering by clicking and dragging over columns, which is really intuitive! It's written in something that compiles to WebAssembly; it's ridiculously fast.
 
 ## QGIS
 
@@ -40,7 +41,7 @@ I have a very particular problem. If I store my grocery lists in a generic tool 
 
 [OurGroceries](https://ourgroceries.com/) provides this. It also provides auto-categorization of items (corresponding roughly to aisles or areas in the grocery store), which speeds up my trips a lot! And if you're going shopping with a partner, every client looking at the same list syncs in real-time, so you can efficiently e.g. start on opposite sides of the store and meet in the middle.
 
-I only want for a Pebble app... There is no official API so this would take some reverse engineering, I think.
+The only thing I'm left wanting is a Pebble app... There is no official API so this would take some reverse engineering, I think.
 
 ## YNAB
 
@@ -61,6 +62,8 @@ I'm looking at [TaskRatchet](https://taskratchet.com/) to help with less habit-s
 These days I track my todos in Todoist instead, but I often wish I had the flexibility that Taskwarrior gave me...
 
 # Physical objects
+
+"Apps" is actually short for "appliances" now.
 
 ## Anker 65W charger
 
@@ -86,7 +89,7 @@ I know cast iron can be kind of polarizing, and for good reason! It is not trivi
 
 But also, it works!!! The relatively even heating + great heat retention makes things so much easier and more consistent.
 
-Give me a [12" skillet](https://www.lodgecastiron.com/products/12-inch-cast-iron-skillet-with-handle-holder) and enameled dutch oven of reasonable size (6qt is what I have in my kitchen) and I can make basically anything.
+Give me a [12" skillet](https://www.lodgecastiron.com/products/12-inch-cast-iron-skillet-with-handle-holder) and an enameled dutch oven of reasonable size (6qt is what I have in my kitchen) and I can make basically anything.
 
 ## Pens and pencils
 
